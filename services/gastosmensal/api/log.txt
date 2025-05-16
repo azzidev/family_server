@@ -1,0 +1,56 @@
+Resultado do execute: true
+Query preparada: INSERT INTO gastosmensal_items (_id_user, _id_list, name, price, date_buy, date) VALUES (:user_id, :list_id, :name, JSON_OBJECT('price', :price, 'installments', :installments, 'current_installment', :current_installment), :date_buy, JSON_OBJECT('created', NOW(), 'updated', NOW()))
+Valores vinculados: Array
+(
+    [user_id] => 1
+    [list_id] => 2
+    [name] => TESTE
+    [price] => 68.2
+    [installments] => 
+    [current_installment] => 1
+    [date_buy] => 2025-05-06
+)
+
+Resultado do execute: true
+Query preparada: INSERT INTO gastosmensal_items (_id_user, _id_list, name, price, date_buy, date) VALUES (:user_id, :list_id, :name, JSON_OBJECT('price', :price, 'installments', :installments, 'current_installment', :current_installment), :date_buy, JSON_OBJECT('created', NOW(), 'updated', NOW()))
+Valores vinculados: Array
+(
+    [user_id] => 1
+    [list_id] => 2
+    [name] => Batata da Yokito
+    [price] => 7.99
+    [installments] => 
+    [current_installment] => 1
+    [date_buy] => 2025-04-04
+)
+
+Resultado do execute (lista): true
+Resultado do execute: true
+Query preparada: INSERT INTO gastosmensal_items (_id_user, _id_list, name, price, date_buy, date) VALUES (:user_id, :list_id, :name, JSON_OBJECT('price', :price, 'installments', :installments, 'current_installment', :current_installment), :date_buy, JSON_OBJECT('created', NOW(), 'updated', NOW()))
+Valores vinculados: Array
+(
+    [user_id] => 1
+    [list_id] => 5
+    [name] => Novo item
+    [price] => 25.66
+    [installments] => 
+    [current_installment] => 1
+    [date_buy] => 2025-05-06
+)
+
+Resultado do execute (lista): true
+Resultado do execute (lista): true
+Resultado do execute (lista): true
+Resultado do execute: true
+Query preparada: INSERT INTO gastosmensal_items (_id_user, _id_list, name, price, date_buy, date) VALUES (:user_id, :list_id, :name, JSON_OBJECT('price', :price, 'installments', :installments, 'current_installment', :current_installment), :date_buy, JSON_OBJECT('created', NOW(), 'updated', NOW()))
+Valores vinculados: Array
+(
+    [user_id] => 2
+    [list_id] => 5
+    [name] => NOME DO ITEM
+    [price] => 25.45
+    [installments] => 
+    [current_installment] => 1
+    [date_buy] => 2025-05-13
+)
+

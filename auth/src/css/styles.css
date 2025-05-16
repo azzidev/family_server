@@ -1,0 +1,45 @@
+body {
+    background-color: #141414;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+h1 {
+    color: #fff;
+    font-size: 2rem;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.user-avatar button {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #fff;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    user-select: none;
+}
+
+.user-avatar button:hover {
+    transform: scale(1.1);
+    background-color: #111;
+    color: #fff;
+}
+
+.user-avatar p {
+    color: #fff;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+#user-list, #login-form {
+    transition: opacity 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}

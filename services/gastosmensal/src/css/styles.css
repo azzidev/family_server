@@ -1,0 +1,58 @@
+@import "../../../../root/fonts/Poppins-Regular.ttf";
+
+@font-face {
+    font-family: 'Poppins';
+    src: url("../../../../root/fonts/Poppins-Regular.ttf") format('truetype');
+}
+
+*{
+    font-family: 'Poppins', sans-serif ;
+}
+
+p,td,th,span{
+    font-size: 14px !important;
+}
+
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.floating-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+}
+
+.floating-menu.show {
+    display: flex;
+}
+
+table{
+    border-radius: 12px !important;
+    overflow: hidden;
+}
+
+thead>tr>th, tfoot>tr>td{
+    background: var(--bs-table-border-color) !important;
+}
+
+thead{
+    border-radius: 10px 0px 0px 10px !important;
+}
+
+thead>tr{
+    border-radius: 10px 0px 0px 10px !important;
+}
+
+tfoot{
+    border-radius: 0px 10px 10px 0px !important;
+}
+
+tfoot>tr{
+    border-radius: 0px 10px 10px 0px !important;
+}

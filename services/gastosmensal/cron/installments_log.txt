@@ -1,0 +1,506 @@
+[2025-05-13 21:32:24] Iniciando processamento de parcelas
+[2025-05-13 21:32:24] Período de processamento: de 2025-04-13 até 2025-06-13
+[2025-05-13 21:32:24] Encontrados 2 usuários com itens parcelados
+[2025-05-13 21:32:24] Processando usuário ID: 1
+[2025-05-13 21:32:24] Lista mais recente do tipo 'cost': Cartão Itaú (período: 2025-04-01 00:00:00 a 2025-05-01 23:59:59)
+[2025-05-13 21:32:24] Encontrados 2 itens parcelados na lista Cartão Itaú
+[2025-05-13 21:32:24] Criando nova lista para o próximo período: Cartão Itaú
+[2025-05-13 21:32:24] Nova lista criada com ID: 13
+[2025-05-13 21:32:24] Processando item Mochila Duda (03/06) - Parcela 4/6
+[2025-05-13 21:32:24] Nova parcela criada com ID: 47 para o item Mochila Duda (03/06) (4/6)
+[2025-05-13 21:32:24] Processando item Cartucho Impressora (02/05) - Parcela 3/5
+[2025-05-13 21:32:24] Nova parcela criada com ID: 48 para o item Cartucho Impressora (02/05) (3/5)
+[2025-05-13 21:32:24] Lista mais recente do tipo 'receivable': Entradas (período: 2025-04-01 00:00:00 a 2025-05-01 23:59:59)
+[2025-05-13 21:32:24] Encontrados 0 itens parcelados na lista Entradas
+[2025-05-13 21:32:24] Processando usuário ID: 2
+[2025-05-13 21:32:24] Lista mais recente do tipo 'cost': Lista teste (período: 2025-05-01T00:00 a 2025-05-31T23:59)
+[2025-05-13 21:32:24] Encontrados 0 itens parcelados na lista Lista teste
+[2025-05-13 21:32:24] Lista mais recente do tipo 'receivable': LISTA DO DEBUGGERMAN (período: 2025-05-01 00:00:00 a 2025-05-31 23:59:59)
+[2025-05-13 21:32:24] Encontrados 0 itens parcelados na lista LISTA DO DEBUGGERMAN
+[2025-05-13 21:32:24] Processamento concluído com sucesso
+[2025-05-14 19:45:01] Iniciando processamento de parcelas
+[2025-05-14 19:45:01] Período de processamento: de 2025-04-14 até 2025-06-14
+[2025-05-14 19:45:01] Encontrados 2 usuários com itens parcelados
+[2025-05-14 19:45:01] Processando usuário ID: 1
+[2025-05-14 19:45:01] Lista mais recente do tipo 'cost': Cartão Itaú (período: 2025-05-02 00:00:00 a 2025-05-31 23:59:59)
+[2025-05-14 19:45:01] Encontrados 2 itens parcelados na lista Cartão Itaú
+[2025-05-14 19:45:01] Criando nova lista para o próximo período: Cartão Itaú
+[2025-05-14 19:45:01] Nova lista criada com ID: 14
+[2025-05-14 19:45:01] Processando item Mochila Duda (03/06) - Parcela 5/6
+[2025-05-14 19:45:01] Nova parcela criada com ID: 49 para o item Mochila Duda (03/06) (5/6)
+[2025-05-14 19:45:01] Processando item Cartucho Impressora (02/05) - Parcela 4/5
+[2025-05-14 19:45:01] Nova parcela criada com ID: 50 para o item Cartucho Impressora (02/05) (4/5)
+[2025-05-14 19:45:01] Lista mais recente do tipo 'receivable': Entradas (período: 2025-04-01 00:00:00 a 2025-05-01 23:59:59)
+[2025-05-14 19:45:01] Encontrados 0 itens parcelados na lista Entradas
+[2025-05-14 19:45:01] Processando usuário ID: 2
+[2025-05-14 19:45:01] Lista mais recente do tipo 'cost': Lista teste (período: 2025-05-01T00:00 a 2025-05-31T23:59)
+[2025-05-14 19:45:01] Encontrados 2 itens parcelados na lista Lista teste
+[2025-05-14 19:45:01] Criando nova lista para o próximo período: Lista teste
+[2025-05-14 19:45:01] Nova lista criada com ID: 15
+[2025-05-14 19:45:01] Processando item PARCELA PRA MIM NANDO - Parcela 2/3
+[2025-05-14 19:45:01] Nova parcela criada com ID: 51 para o item PARCELA PRA MIM NANDO (2/3)
+[2025-05-14 19:45:01] Lista mais recente do tipo 'receivable': LISTA DO DEBUGGERMAN (período: 2025-05-01 00:00:00 a 2025-05-31 23:59:59)
+[2025-05-14 19:45:01] Encontrados 1 itens parcelados na lista LISTA DO DEBUGGERMAN
+[2025-05-14 19:45:01] Criando nova lista para o próximo período: LISTA DO DEBUGGERMAN
+[2025-05-14 19:45:01] Nova lista criada com ID: 16
+[2025-05-14 19:45:01] Processamento concluído com sucesso
+[2025-05-14 19:47:47] Iniciando processamento de parcelas
+[2025-05-14 19:47:47] Período de processamento: de 2025-04-14 até 2025-06-14
+[2025-05-14 19:47:47] Encontrados 2 usuários com itens parcelados
+[2025-05-14 19:47:47] Processando usuário ID: 1
+[2025-05-14 19:47:47] Lista mais recente do tipo 'cost': Cartão Itaú (período: 2025-06-01 00:00:00 a 2025-06-30 23:59:59)
+[2025-05-14 19:47:47] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 19:47:47] Lista mais recente do tipo 'receivable': Entradas (período: 2025-04-01 00:00:00 a 2025-05-01 23:59:59)
+[2025-05-14 19:47:47] Encontrados 0 itens parcelados na lista Entradas
+[2025-05-14 19:47:47] Processando usuário ID: 2
+[2025-05-14 19:47:47] Lista mais recente do tipo 'cost': Lista teste (período: 2025-06-01 00:00:00 a 2025-06-30 23:59:59)
+[2025-05-14 19:47:47] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 19:47:47] Lista mais recente do tipo 'receivable': LISTA DO DEBUGGERMAN (período: 2025-06-01 00:00:00 a 2025-06-30 23:59:59)
+[2025-05-14 19:47:47] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 19:47:47] Processamento concluído com sucesso
+[2025-05-14 19:48:05] Iniciando processamento de parcelas
+[2025-05-14 19:48:05] Período de processamento: de 2025-04-14 até 2025-06-14
+[2025-05-14 19:48:05] Encontrados 2 usuários com itens parcelados
+[2025-05-14 19:48:05] Processando usuário ID: 1
+[2025-05-14 19:48:05] Lista mais recente do tipo 'cost': Cartão Itaú (período: 2025-06-01 00:00:00 a 2025-06-30 23:59:59)
+[2025-05-14 19:48:05] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 19:48:05] Lista mais recente do tipo 'receivable': Entradas (período: 2025-04-01 00:00:00 a 2025-05-01 23:59:59)
+[2025-05-14 19:48:05] Encontrados 0 itens parcelados na lista Entradas
+[2025-05-14 19:48:05] Processando usuário ID: 2
+[2025-05-14 19:48:05] Lista mais recente do tipo 'cost': Lista teste (período: 2025-06-01 00:00:00 a 2025-06-30 23:59:59)
+[2025-05-14 19:48:05] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 19:48:05] Lista mais recente do tipo 'receivable': LISTA DO DEBUGGERMAN (período: 2025-06-01 00:00:00 a 2025-06-30 23:59:59)
+[2025-05-14 19:48:05] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 19:48:05] Processamento concluído com sucesso
+[2025-05-14 20:28:32] Iniciando processamento de parcelas
+[2025-05-14 20:28:32] DEBUG - Item encontrado: Array
+(
+    [_id] => 3
+    [name] => Seguro Apto (03/10)
+    [price] => {"price": 15.42, "current_installment": 3, "installments": 10, "total": 154.20}
+)
+
+[2025-05-14 20:28:32] DEBUG - JSON decodificado: Array
+(
+    [price] => 15.42
+    [current_installment] => 3
+    [installments] => 10
+    [total] => 154.2
+)
+
+[2025-05-14 20:28:32] Período de processamento: de 2025-04-14 até 2025-06-14
+[2025-05-14 20:28:32] Encontrados 2 usuários com itens parcelados
+[2025-05-14 20:28:32] Processando usuário ID: 1
+[2025-05-14 20:28:32] Lista mais recente do tipo 'cost': Cartão Itaú (período: 2025-06-01 00:00:00 a 2025-06-30 23:59:59)
+[2025-05-14 20:28:32] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 20:28:32] Lista mais recente do tipo 'receivable': Entradas (período: 2025-04-01 00:00:00 a 2025-05-01 23:59:59)
+[2025-05-14 20:28:32] Encontrados 0 itens parcelados na lista Entradas
+[2025-05-14 20:28:32] Processando usuário ID: 2
+[2025-05-14 20:28:32] Lista mais recente do tipo 'cost': Lista teste (período: 2025-06-01 00:00:00 a 2025-06-30 23:59:59)
+[2025-05-14 20:28:32] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 20:28:32] Lista mais recente do tipo 'receivable': LISTA DO DEBUGGERMAN (período: 2025-06-01 00:00:00 a 2025-06-30 23:59:59)
+[2025-05-14 20:28:32] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 20:28:32] Processamento concluído com sucesso
+[2025-05-14 20:32:20] Iniciando processamento de parcelas
+[2025-05-14 20:32:20] DEBUG - Item completo: Array
+(
+    [_id] => 3
+    [_id_user] => 1
+    [_id_list] => 1
+    [name] => Seguro Apto (03/10)
+    [price] => {"price": 15.42, "current_installment": 3, "installments": 10, "total": 154.20}
+    [date_buy] => 2025-04-01
+    [date] => {"created": "2025-05-02 18:08:10", "updated": "2025-05-02 18:08:10"}
+    [list_name] => Cartão Itaú
+    [list_id] => 1
+    [list_period] => {
+"start": "2025-04-01 00:00:00",
+"end": "2025-05-01 23:59:59"
+}
+)
+
+[2025-05-14 20:32:20] DEBUG - Lista período: {
+"start": "2025-04-01 00:00:00",
+"end": "2025-05-01 23:59:59"
+}
+[2025-05-14 20:32:20] DEBUG - Lista ID: 1
+[2025-05-14 20:32:20] DEBUG - Lista encontrada no processamento: SIM
+[2025-05-14 20:32:20] Período de processamento: de 2025-04-14 até 2025-06-14
+[2025-05-14 20:32:20] Encontrados 2 usuários com itens parcelados
+[2025-05-14 20:32:20] Processando usuário ID: 1
+[2025-05-14 20:32:20] Lista mais recente do tipo 'cost': Cartão Itaú (período: 2025-06-01 00:00:00 a 2025-06-30 23:59:59)
+[2025-05-14 20:32:20] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 20:32:20] Lista mais recente do tipo 'receivable': Entradas (período: 2025-04-01 00:00:00 a 2025-05-01 23:59:59)
+[2025-05-14 20:32:20] Encontrados 0 itens parcelados na lista Entradas
+[2025-05-14 20:32:20] Processando usuário ID: 2
+[2025-05-14 20:32:20] Lista mais recente do tipo 'cost': Lista teste (período: 2025-06-01 00:00:00 a 2025-06-30 23:59:59)
+[2025-05-14 20:32:20] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 20:32:20] Lista mais recente do tipo 'receivable': LISTA DO DEBUGGERMAN (período: 2025-06-01 00:00:00 a 2025-06-30 23:59:59)
+[2025-05-14 20:32:20] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 20:32:20] Processamento concluído com sucesso
+[2025-05-14 20:35:24] Iniciando processamento de parcelas
+[2025-05-14 20:35:24] DEBUG - Item completo: Array
+(
+    [_id] => 3
+    [_id_user] => 1
+    [_id_list] => 1
+    [name] => Seguro Apto (03/10)
+    [price] => {"price": 15.42, "current_installment": 3, "installments": 10, "total": 154.20}
+    [date_buy] => 2025-04-01
+    [date] => {"created": "2025-05-02 18:08:10", "updated": "2025-05-02 18:08:10"}
+    [list_name] => Cartão Itaú
+    [list_id] => 1
+    [list_period] => {
+"start": "2025-04-01 00:00:00",
+"end": "2025-05-01 23:59:59"
+}
+)
+
+[2025-05-14 20:35:24] DEBUG - Lista período: {
+"start": "2025-04-01 00:00:00",
+"end": "2025-05-01 23:59:59"
+}
+[2025-05-14 20:35:24] DEBUG - Lista ID: 1
+[2025-05-14 20:35:24] DEBUG - Lista encontrada no processamento: SIM
+[2025-05-14 20:35:24] Período de processamento: de 2025-04-14 até 2025-06-14
+[2025-05-14 20:35:24] Encontrados 2 usuários com itens parcelados
+[2025-05-14 20:35:24] Processando usuário ID: 1
+[2025-05-14 20:35:24] Lista mais recente do tipo 'cost': Cartão Itaú (período: 2025-04-01 00:00:00 a 2025-05-01 23:59:59)
+[2025-05-14 20:35:24] Encontrados 2 itens parcelados na lista Cartão Itaú
+[2025-05-14 20:35:24] Criando nova lista para o próximo período: Cartão Itaú
+[2025-05-14 20:35:24] Nova lista criada com ID: 17
+[2025-05-14 20:35:24] Processando item Mochila Duda (03/06) - Parcela 4/6
+[2025-05-14 20:35:24] Nova parcela criada com ID: 52 para o item Mochila Duda (03/06) (4/6)
+[2025-05-14 20:35:24] Processando item Cartucho Impressora (02/05) - Parcela 3/5
+[2025-05-14 20:35:24] Nova parcela criada com ID: 53 para o item Cartucho Impressora (02/05) (3/5)
+[2025-05-14 20:35:24] Lista mais recente do tipo 'receivable': Entradas (período: 2025-04-01 00:00:00 a 2025-05-01 23:59:59)
+[2025-05-14 20:35:24] Encontrados 0 itens parcelados na lista Entradas
+[2025-05-14 20:35:24] Processando usuário ID: 2
+[2025-05-14 20:35:24] Lista mais recente do tipo 'cost': Lista teste (período: 2025-06-01 00:00:00 a 2025-06-30 23:59:59)
+[2025-05-14 20:35:24] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 20:35:24] Lista mais recente do tipo 'receivable': LISTA DO DEBUGGERMAN (período: 2025-06-01 00:00:00 a 2025-06-30 23:59:59)
+[2025-05-14 20:35:24] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 20:35:24] Processamento concluído com sucesso
+[2025-05-14 21:04:44] Iniciando processamento de parcelas
+[2025-05-14 21:04:44] DEBUG - Item completo: Array
+(
+    [_id] => 3
+    [_id_user] => 1
+    [_id_list] => 1
+    [name] => Seguro Apto (03/10)
+    [price] => {"price": 15.42, "current_installment": 3, "installments": 10, "total": 154.20}
+    [date_buy] => 2025-04-01
+    [date] => {"created": "2025-05-02 18:08:10", "updated": "2025-05-02 18:08:10"}
+    [list_name] => Cartão Itaú
+    [list_id] => 1
+    [list_period] => {
+"start": "2025-04-01 00:00:00",
+"end": "2025-05-01 23:59:59"
+}
+)
+
+[2025-05-14 21:04:44] DEBUG - Lista período: {
+"start": "2025-04-01 00:00:00",
+"end": "2025-05-01 23:59:59"
+}
+[2025-05-14 21:04:44] DEBUG - Lista ID: 1
+[2025-05-14 21:04:44] DEBUG - Lista encontrada no processamento: SIM
+[2025-05-14 21:04:44] Período de processamento: de 2025-04-14 até 2025-06-14
+[2025-05-14 21:04:44] Encontrados 2 usuários com itens parcelados
+[2025-05-14 21:04:44] Processando usuário ID: 1
+[2025-05-14 21:04:44] Encontrados 5 itens parcelados para o usuário 1
+[2025-05-14 21:04:44] Processando lista Cartão Itaú (ID: 1) com 4 itens parcelados
+[2025-05-14 21:04:44] Criando nova lista para o próximo período: Cartão Itaú
+[2025-05-14 21:04:44] Nova lista criada com ID: 18
+[2025-05-14 21:04:44] Processando item Panelas Red Silver - Parcela 9/12
+[2025-05-14 21:04:44] Nova parcela criada com ID: 54 para o item Panelas Red Silver (9/12)
+[2025-05-14 21:04:44] Processando item Mochila Duda (03/06) - Parcela 4/6
+[2025-05-14 21:04:44] Nova parcela criada com ID: 55 para o item Mochila Duda (03/06) (4/6)
+[2025-05-14 21:04:44] Processando item Seguro Apto (03/10) - Parcela 4/10
+[2025-05-14 21:04:44] Nova parcela criada com ID: 56 para o item Seguro Apto (03/10) (4/10)
+[2025-05-14 21:04:44] Processando item Cartucho Impressora (02/05) - Parcela 3/5
+[2025-05-14 21:04:44] Nova parcela criada com ID: 57 para o item Cartucho Impressora (02/05) (3/5)
+[2025-05-14 21:04:44] Processando lista Cartão Nubank (ID: 2) com 1 itens parcelados
+[2025-05-14 21:04:44] Criando nova lista para o próximo período: Cartão Nubank
+[2025-05-14 21:04:44] Nova lista criada com ID: 19
+[2025-05-14 21:04:44] Processando item Academia (01/03) - Parcela 2/3
+[2025-05-14 21:04:44] Nova parcela criada com ID: 58 para o item Academia (01/03) (2/3)
+[2025-05-14 21:04:44] Processando usuário ID: 2
+[2025-05-14 21:04:44] Encontrados 3 itens parcelados para o usuário 2
+[2025-05-14 21:04:44] Processando lista Lista teste (ID: 5) com 1 itens parcelados
+[2025-05-14 21:04:44] Usando lista existente com ID: 15
+[2025-05-14 21:04:44] Processando item PARCELA PRA MIM NANDO - Parcela 2/3
+[2025-05-14 21:04:44] Item PARCELA PRA MIM NANDO (parcela 2) já existe na próxima lista. Ignorando.
+[2025-05-14 21:04:44] Processando lista LISTINHA (ID: 9) com 1 itens parcelados
+[2025-05-14 21:04:44] Criando nova lista para o próximo período: LISTINHA
+[2025-05-14 21:04:44] Nova lista criada com ID: 20
+[2025-05-14 21:04:44] Processando item PSSANDO A MACA - Parcela 2/2
+[2025-05-14 21:04:44] Nova parcela criada com ID: 59 para o item PSSANDO A MACA (2/2)
+[2025-05-14 21:04:44] Processando lista Lista teste (ID: 15) com 1 itens parcelados
+[2025-05-14 21:04:44] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-14 21:04:44] Processamento concluído com sucesso
+[2025-05-15 21:12:25] Iniciando processamento de parcelas
+[2025-05-15 21:12:25] DEBUG - Item completo: Array
+(
+    [_id] => 3
+    [_id_user] => 1
+    [_id_list] => 1
+    [name] => Seguro Apto (03/10)
+    [price] => {"price": 15.42, "current_installment": 3, "installments": 10, "total": 154.20}
+    [date_buy] => 2025-04-01
+    [date] => {"created": "2025-05-02 18:08:10", "updated": "2025-05-02 18:08:10"}
+    [list_name] => Cartão Itaú
+    [list_id] => 1
+    [list_period] => {
+"start": "2025-04-01 00:00:00",
+"end": "2025-05-01 23:59:59"
+}
+)
+
+[2025-05-15 21:12:25] DEBUG - Lista período: {
+"start": "2025-04-01 00:00:00",
+"end": "2025-05-01 23:59:59"
+}
+[2025-05-15 21:12:25] DEBUG - Lista ID: 1
+[2025-05-15 21:12:25] DEBUG - Lista encontrada no processamento: SIM
+[2025-05-15 21:12:25] Período de processamento: de 2025-04-15 até 2025-06-15
+[2025-05-15 21:12:25] Encontrados 2 usuários com itens parcelados
+[2025-05-15 21:12:25] Processando usuário ID: 1
+[2025-05-15 21:12:25] Encontrados 10 itens parcelados para o usuário 1
+[2025-05-15 21:12:25] Processando lista Cartão Itaú (ID: 1) com 4 itens parcelados
+[2025-05-15 21:12:25] Usando lista existente com ID: 18
+[2025-05-15 21:12:25] Processando item Panelas Red Silver - Parcela 9/12
+[2025-05-15 21:12:25] Item Panelas Red Silver (parcela 9) já existe na próxima lista. Ignorando.
+[2025-05-15 21:12:25] Processando item Mochila Duda (03/06) - Parcela 4/6
+[2025-05-15 21:12:25] Item Mochila Duda (03/06) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-05-15 21:12:25] Processando item Seguro Apto (03/10) - Parcela 4/10
+[2025-05-15 21:12:25] Item Seguro Apto (03/10) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-05-15 21:12:25] Processando item Cartucho Impressora (02/05) - Parcela 3/5
+[2025-05-15 21:12:25] Item Cartucho Impressora (02/05) (parcela 3) já existe na próxima lista. Ignorando.
+[2025-05-15 21:12:25] Processando lista Cartão Nubank (ID: 2) com 1 itens parcelados
+[2025-05-15 21:12:25] Usando lista existente com ID: 19
+[2025-05-15 21:12:25] Processando item Academia (01/03) - Parcela 2/3
+[2025-05-15 21:12:25] Item Academia (01/03) (parcela 2) já existe na próxima lista. Ignorando.
+[2025-05-15 21:12:25] Processando lista Cartão Itaú (ID: 18) com 4 itens parcelados
+[2025-05-15 21:12:25] Criando nova lista para o próximo período: Cartão Itaú
+[2025-05-15 21:12:25] Nova lista criada com ID: 21
+[2025-05-15 21:12:25] Processando item Panelas Red Silver - Parcela 10/12
+[2025-05-15 21:12:25] Nova parcela criada com ID: 63 para o item Panelas Red Silver (10/12)
+[2025-05-15 21:12:25] Processando item Mochila Duda (03/06) - Parcela 5/6
+[2025-05-15 21:12:25] Nova parcela criada com ID: 64 para o item Mochila Duda (03/06) (5/6)
+[2025-05-15 21:12:25] Processando item Seguro Apto (03/10) - Parcela 5/10
+[2025-05-15 21:12:25] Nova parcela criada com ID: 65 para o item Seguro Apto (03/10) (5/10)
+[2025-05-15 21:12:25] Processando item Cartucho Impressora (02/05) - Parcela 4/5
+[2025-05-15 21:12:25] Nova parcela criada com ID: 66 para o item Cartucho Impressora (02/05) (4/5)
+[2025-05-15 21:12:25] Processando lista Cartão Nubank (ID: 19) com 1 itens parcelados
+[2025-05-15 21:12:25] Criando nova lista para o próximo período: Cartão Nubank
+[2025-05-15 21:12:25] Nova lista criada com ID: 22
+[2025-05-15 21:12:25] Processando item Academia (01/03) - Parcela 3/3
+[2025-05-15 21:12:25] Nova parcela criada com ID: 67 para o item Academia (01/03) (3/3)
+[2025-05-15 21:12:25] Processando usuário ID: 2
+[2025-05-15 21:12:25] Encontrados 1 itens parcelados para o usuário 2
+[2025-05-15 21:12:25] Processando lista Teste de Lista 3 (ID: 7) com 1 itens parcelados
+[2025-05-15 21:12:25] Criando nova lista para o próximo período: Teste de Lista 3
+[2025-05-15 21:12:25] Nova lista criada com ID: 23
+[2025-05-15 21:12:25] Processando item Teste de item parcelado - Parcela 2/2
+[2025-05-15 21:12:25] Nova parcela criada com ID: 68 para o item Teste de item parcelado (2/2)
+[2025-05-15 21:12:25] Processamento concluído com sucesso
+[2025-05-15 21:18:19] Iniciando processamento de parcelas
+[2025-05-15 21:18:19] DEBUG - Item completo: Array
+(
+    [_id] => 3
+    [_id_user] => 1
+    [_id_list] => 1
+    [name] => Seguro Apto (03/10)
+    [price] => {"price": 15.42, "current_installment": 3, "installments": 10, "total": 154.20}
+    [date_buy] => 2025-04-01
+    [date] => {"created": "2025-05-02 18:08:10", "updated": "2025-05-02 18:08:10"}
+    [list_name] => Cartão Itaú
+    [list_id] => 1
+    [list_period] => {
+"start": "2025-04-01 00:00:00",
+"end": "2025-05-01 23:59:59"
+}
+)
+
+[2025-05-15 21:18:19] DEBUG - Lista período: {
+"start": "2025-04-01 00:00:00",
+"end": "2025-05-01 23:59:59"
+}
+[2025-05-15 21:18:19] DEBUG - Lista ID: 1
+[2025-05-15 21:18:19] DEBUG - Lista encontrada no processamento: SIM
+[2025-05-15 21:18:19] Período de processamento: de 2025-04-15 até 2025-06-15
+[2025-05-15 21:18:19] Encontrados 2 usuários com itens parcelados
+[2025-05-15 21:18:19] Processando usuário ID: 1
+[2025-05-15 21:18:19] Encontrados 15 itens parcelados para o usuário 1
+[2025-05-15 21:18:19] Processando lista Cartão Itaú (ID: 1) com 4 itens parcelados
+[2025-05-15 21:18:19] Usando lista existente com ID: 18
+[2025-05-15 21:18:19] Processando item Panelas Red Silver - Parcela 9/12
+[2025-05-15 21:18:19] Item Panelas Red Silver (parcela 9) já existe na próxima lista. Ignorando.
+[2025-05-15 21:18:19] Processando item Mochila Duda (03/06) - Parcela 4/6
+[2025-05-15 21:18:19] Item Mochila Duda (03/06) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-05-15 21:18:19] Processando item Seguro Apto (03/10) - Parcela 4/10
+[2025-05-15 21:18:19] Item Seguro Apto (03/10) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-05-15 21:18:19] Processando item Cartucho Impressora (02/05) - Parcela 3/5
+[2025-05-15 21:18:19] Item Cartucho Impressora (02/05) (parcela 3) já existe na próxima lista. Ignorando.
+[2025-05-15 21:18:19] Processando lista Cartão Nubank (ID: 2) com 1 itens parcelados
+[2025-05-15 21:18:19] Usando lista existente com ID: 19
+[2025-05-15 21:18:19] Processando item Academia (01/03) - Parcela 2/3
+[2025-05-15 21:18:19] Item Academia (01/03) (parcela 2) já existe na próxima lista. Ignorando.
+[2025-05-15 21:18:19] Processando lista Cartão Itaú (ID: 18) com 4 itens parcelados
+[2025-05-15 21:18:19] Usando lista existente com ID: 21
+[2025-05-15 21:18:19] Processando item Panelas Red Silver - Parcela 10/12
+[2025-05-15 21:18:19] Item Panelas Red Silver (parcela 10) já existe na próxima lista. Ignorando.
+[2025-05-15 21:18:19] Processando item Mochila Duda (03/06) - Parcela 5/6
+[2025-05-15 21:18:19] Item Mochila Duda (03/06) (parcela 5) já existe na próxima lista. Ignorando.
+[2025-05-15 21:18:19] Processando item Seguro Apto (03/10) - Parcela 5/10
+[2025-05-15 21:18:19] Item Seguro Apto (03/10) (parcela 5) já existe na próxima lista. Ignorando.
+[2025-05-15 21:18:19] Processando item Cartucho Impressora (02/05) - Parcela 4/5
+[2025-05-15 21:18:19] Item Cartucho Impressora (02/05) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-05-15 21:18:19] Processando lista Cartão Nubank (ID: 19) com 1 itens parcelados
+[2025-05-15 21:18:19] Usando lista existente com ID: 22
+[2025-05-15 21:18:19] Processando item Academia (01/03) - Parcela 3/3
+[2025-05-15 21:18:19] Item Academia (01/03) (parcela 3) já existe na próxima lista. Ignorando.
+[2025-05-15 21:18:19] Processando lista Cartão Itaú (ID: 21) com 4 itens parcelados
+[2025-05-15 21:18:19] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-15 21:18:19] Processando lista Cartão Nubank (ID: 22) com 1 itens parcelados
+[2025-05-15 21:18:19] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-15 21:18:19] Processando usuário ID: 2
+[2025-05-15 21:18:19] Encontrados 1 itens parcelados para o usuário 2
+[2025-05-15 21:18:19] Processando lista Teste de Lista 3 (ID: 23) com 1 itens parcelados
+[2025-05-15 21:18:19] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-15 21:18:19] Processamento concluído com sucesso
+[2025-05-15 21:19:50] Iniciando processamento de parcelas
+[2025-05-15 21:19:50] DEBUG - Item completo: Array
+(
+    [_id] => 3
+    [_id_user] => 1
+    [_id_list] => 1
+    [name] => Seguro Apto (03/10)
+    [price] => {"price": 15.42, "current_installment": 3, "installments": 10, "total": 154.20}
+    [date_buy] => 2025-04-01
+    [date] => {"created": "2025-05-02 18:08:10", "updated": "2025-05-02 18:08:10"}
+    [list_name] => Cartão Itaú
+    [list_id] => 1
+    [list_period] => {
+"start": "2025-04-01 00:00:00",
+"end": "2025-05-01 23:59:59"
+}
+)
+
+[2025-05-15 21:19:50] DEBUG - Lista período: {
+"start": "2025-04-01 00:00:00",
+"end": "2025-05-01 23:59:59"
+}
+[2025-05-15 21:19:50] DEBUG - Lista ID: 1
+[2025-05-15 21:19:50] DEBUG - Lista encontrada no processamento: SIM
+[2025-05-15 21:19:50] Período de processamento: de 2025-04-15 até 2025-06-15
+[2025-05-15 21:19:50] Encontrados 2 usuários com itens parcelados
+[2025-05-15 21:19:50] Processando usuário ID: 1
+[2025-05-15 21:19:50] Encontrados 15 itens parcelados para o usuário 1
+[2025-05-15 21:19:50] Processando lista Cartão Itaú (ID: 1) com 4 itens parcelados
+[2025-05-15 21:19:50] Usando lista existente com ID: 18
+[2025-05-15 21:19:50] Processando item Panelas Red Silver - Parcela 9/12
+[2025-05-15 21:19:50] Item Panelas Red Silver (parcela 9) já existe na próxima lista. Ignorando.
+[2025-05-15 21:19:50] Processando item Mochila Duda (03/06) - Parcela 4/6
+[2025-05-15 21:19:50] Item Mochila Duda (03/06) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-05-15 21:19:50] Processando item Seguro Apto (03/10) - Parcela 4/10
+[2025-05-15 21:19:50] Item Seguro Apto (03/10) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-05-15 21:19:50] Processando item Cartucho Impressora (02/05) - Parcela 3/5
+[2025-05-15 21:19:50] Item Cartucho Impressora (02/05) (parcela 3) já existe na próxima lista. Ignorando.
+[2025-05-15 21:19:50] Processando lista Cartão Nubank (ID: 2) com 1 itens parcelados
+[2025-05-15 21:19:50] Usando lista existente com ID: 19
+[2025-05-15 21:19:50] Processando item Academia (01/03) - Parcela 2/3
+[2025-05-15 21:19:50] Item Academia (01/03) (parcela 2) já existe na próxima lista. Ignorando.
+[2025-05-15 21:19:50] Processando lista Cartão Itaú (ID: 18) com 4 itens parcelados
+[2025-05-15 21:19:50] Usando lista existente com ID: 21
+[2025-05-15 21:19:50] Processando item Panelas Red Silver - Parcela 10/12
+[2025-05-15 21:19:50] Item Panelas Red Silver (parcela 10) já existe na próxima lista. Ignorando.
+[2025-05-15 21:19:50] Processando item Mochila Duda (03/06) - Parcela 5/6
+[2025-05-15 21:19:50] Item Mochila Duda (03/06) (parcela 5) já existe na próxima lista. Ignorando.
+[2025-05-15 21:19:50] Processando item Seguro Apto (03/10) - Parcela 5/10
+[2025-05-15 21:19:50] Item Seguro Apto (03/10) (parcela 5) já existe na próxima lista. Ignorando.
+[2025-05-15 21:19:50] Processando item Cartucho Impressora (02/05) - Parcela 4/5
+[2025-05-15 21:19:50] Item Cartucho Impressora (02/05) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-05-15 21:19:50] Processando lista Cartão Nubank (ID: 19) com 1 itens parcelados
+[2025-05-15 21:19:50] Usando lista existente com ID: 22
+[2025-05-15 21:19:50] Processando item Academia (01/03) - Parcela 3/3
+[2025-05-15 21:19:50] Item Academia (01/03) (parcela 3) já existe na próxima lista. Ignorando.
+[2025-05-15 21:19:50] Processando lista Cartão Itaú (ID: 21) com 4 itens parcelados
+[2025-05-15 21:19:50] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-15 21:19:50] Processando lista Cartão Nubank (ID: 22) com 1 itens parcelados
+[2025-05-15 21:19:50] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-15 21:19:50] Processando usuário ID: 2
+[2025-05-15 21:19:50] Encontrados 1 itens parcelados para o usuário 2
+[2025-05-15 21:19:50] Processando lista Teste de Lista 3 (ID: 7) com 1 itens parcelados
+[2025-05-15 21:19:50] Usando lista existente com ID: 23
+[2025-05-15 21:19:50] Processando item Teste de item parcelado333 - Parcela 2/2
+[2025-05-15 21:19:50] Nova parcela criada com ID: 71 para o item Teste de item parcelado333 (2/2)
+[2025-05-15 21:19:50] Processamento concluído com sucesso
+[2025-05-15 21:26:22] Iniciando processamento de parcelas
+[2025-05-15 21:26:22] DEBUG - Item completo: Array
+(
+    [_id] => 3
+    [_id_user] => 1
+    [_id_list] => 1
+    [name] => Seguro Apto (03/10)
+    [price] => {"price": 15.42, "current_installment": 3, "installments": 10, "total": 154.20}
+    [date_buy] => 2025-04-01
+    [date] => {"created": "2025-05-02 18:08:10", "updated": "2025-05-02 18:08:10"}
+    [list_name] => Cartão Itaú
+    [list_id] => 1
+    [list_period] => {
+"start": "2025-04-01 00:00:00",
+"end": "2025-05-01 23:59:59"
+}
+)
+
+[2025-05-15 21:26:22] DEBUG - Lista período: {
+"start": "2025-04-01 00:00:00",
+"end": "2025-05-01 23:59:59"
+}
+[2025-05-15 21:26:22] DEBUG - Lista ID: 1
+[2025-05-15 21:26:22] DEBUG - Lista encontrada no processamento: SIM
+[2025-05-15 21:26:22] Período de processamento: de 2025-04-15 até 2025-06-15
+[2025-05-15 21:26:22] Encontrados 2 usuários com itens parcelados
+[2025-05-15 21:26:22] Processando usuário ID: 1
+[2025-05-15 21:26:22] Encontrados 15 itens parcelados para o usuário 1
+[2025-05-15 21:26:22] Processando lista Cartão Itaú (ID: 1) com 4 itens parcelados
+[2025-05-15 21:26:22] Usando lista existente com ID: 18
+[2025-05-15 21:26:22] Processando item Panelas Red Silver - Parcela 9/12
+[2025-05-15 21:26:22] Item Panelas Red Silver (parcela 9) já existe na próxima lista. Ignorando.
+[2025-05-15 21:26:22] Processando item Mochila Duda (03/06) - Parcela 4/6
+[2025-05-15 21:26:22] Item Mochila Duda (03/06) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-05-15 21:26:22] Processando item Seguro Apto (03/10) - Parcela 4/10
+[2025-05-15 21:26:22] Item Seguro Apto (03/10) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-05-15 21:26:22] Processando item Cartucho Impressora (02/05) - Parcela 3/5
+[2025-05-15 21:26:22] Item Cartucho Impressora (02/05) (parcela 3) já existe na próxima lista. Ignorando.
+[2025-05-15 21:26:22] Processando lista Cartão Nubank (ID: 2) com 1 itens parcelados
+[2025-05-15 21:26:22] Usando lista existente com ID: 19
+[2025-05-15 21:26:22] Processando item Academia (01/03) - Parcela 2/3
+[2025-05-15 21:26:22] Item Academia (01/03) (parcela 2) já existe na próxima lista. Ignorando.
+[2025-05-15 21:26:22] Processando lista Cartão Itaú (ID: 18) com 4 itens parcelados
+[2025-05-15 21:26:22] Usando lista existente com ID: 21
+[2025-05-15 21:26:22] Processando item Panelas Red Silver - Parcela 10/12
+[2025-05-15 21:26:22] Item Panelas Red Silver (parcela 10) já existe na próxima lista. Ignorando.
+[2025-05-15 21:26:22] Processando item Mochila Duda (03/06) - Parcela 5/6
+[2025-05-15 21:26:22] Item Mochila Duda (03/06) (parcela 5) já existe na próxima lista. Ignorando.
+[2025-05-15 21:26:22] Processando item Seguro Apto (03/10) - Parcela 5/10
+[2025-05-15 21:26:22] Item Seguro Apto (03/10) (parcela 5) já existe na próxima lista. Ignorando.
+[2025-05-15 21:26:22] Processando item Cartucho Impressora (02/05) - Parcela 4/5
+[2025-05-15 21:26:22] Item Cartucho Impressora (02/05) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-05-15 21:26:22] Processando lista Cartão Nubank (ID: 19) com 1 itens parcelados
+[2025-05-15 21:26:22] Usando lista existente com ID: 22
+[2025-05-15 21:26:22] Processando item Academia (01/03) - Parcela 3/3
+[2025-05-15 21:26:22] Item Academia (01/03) (parcela 3) já existe na próxima lista. Ignorando.
+[2025-05-15 21:26:22] Processando lista Cartão Itaú (ID: 21) com 4 itens parcelados
+[2025-05-15 21:26:22] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-15 21:26:22] Processando lista Cartão Nubank (ID: 22) com 1 itens parcelados
+[2025-05-15 21:26:22] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-15 21:26:22] Processando usuário ID: 2
+[2025-05-15 21:26:22] Encontrados 1 itens parcelados para o usuário 2
+[2025-05-15 21:26:22] Processando lista Teste de Lista 3 (ID: 7) com 1 itens parcelados
+[2025-05-15 21:26:22] Usando lista existente com ID: 23
+[2025-05-15 21:26:22] Processando item Teste de item parcelado333 - Parcela 2/3
+[2025-05-15 21:26:22] Nova parcela criada com ID: 73 para o item Teste de item parcelado333 (2/3)
+[2025-05-15 21:26:22] Processamento concluído com sucesso
