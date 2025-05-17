@@ -9,6 +9,59 @@ $(document).ready(function () {
     const $currentInstallment = $('#currentInstallment');
     const $addItemForm = $('#addItemForm');
     
+    // Modal de notificação
+    let notificationModal;
+    
+    // Criar o modal de notificação se não existir
+    if ($('#notificationModal').length === 0) {
+        $('body').append(`
+            <div class="modal fade" id="notificationModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                        </div>
+                        <div class="modal-body"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `);
+        notificationModal = new bootstrap.Modal($('#notificationModal')[0]);
+    } else {
+        notificationModal = new bootstrap.Modal($('#notificationModal')[0]);
+    }
+    
+    // Função para mostrar notificações em modal
+    function showNotificationModal(title, message, type = 'info') {
+        const $modal = $('#notificationModal');
+        $modal.find('.modal-title').text(title);
+        $modal.find('.modal-body').html(message);
+        
+        // Remover classes anteriores
+        $modal.find('.modal-header').removeClass('bg-success bg-danger bg-warning bg-info');
+        
+        // Adicionar classe de acordo com o tipo
+        switch(type) {
+            case 'success':
+                $modal.find('.modal-header').addClass('bg-success text-white');
+                break;
+            case 'danger':
+                $modal.find('.modal-header').addClass('bg-danger text-white');
+                break;
+            case 'warning':
+                $modal.find('.modal-header').addClass('bg-warning');
+                break;
+            default:
+                $modal.find('.modal-header').addClass('bg-info text-white');
+        }
+        
+        notificationModal.show();
+    }
+    
     // Filtros de período
     const $startPeriodFilter = $('#start-period-filter');
     const $endPeriodFilter = $('#end-period-filter');
@@ -108,11 +161,11 @@ $(document).ready(function () {
                 } else {
                     const errorMsg = response && response.error ? response.error : 'Erro desconhecido';
                     console.error('Erro ao adicionar item:', response);
-                    alert('Erro ao adicionar item: ' + errorMsg);
+                    showNotificationModal('Erro', 'Erro ao adicionar item: ' + errorMsg, 'danger');
                 }
             },
             error: function (xhr) {
-                alert('Erro ao adicionar item: ' + xhr.responseText);
+                showNotificationModal('Erro', 'Erro ao adicionar item: ' + xhr.responseText, 'danger');
             }
         });
     });
@@ -178,11 +231,11 @@ $(document).ready(function () {
                 } else {
                     const errorMsg = response && response.error ? response.error : 'Erro desconhecido';
                     console.error('Erro ao criar lista:', response);
-                    alert('Erro ao criar lista: ' + errorMsg);
+                    showNotificationModal('Erro', 'Erro ao criar lista: ' + errorMsg, 'danger');
                 }
             },
             error: function (xhr) {
-                alert('Erro ao criar lista: ' + xhr.responseText);
+                showNotificationModal('Erro', 'Erro ao criar lista: ' + xhr.responseText, 'danger');
             }
         });
     });
@@ -358,7 +411,7 @@ $(document).ready(function () {
 
         // Verifica se as datas estão preenchidas
         if (!startDate || !endDate) {
-            alert('Por favor, preencha as datas de início e fim.');
+            showNotificationModal('Atenção', 'Por favor, preencha as datas de início e fim.', 'warning');
             return;
         }
 
@@ -387,11 +440,11 @@ $(document).ready(function () {
                     // Busca os dados para os accordions
                     fetchAccordionData(startDate, endDate);
                 } else {
-                    alert('Erro ao buscar itens: ' + response.error);
+                    showNotificationModal('Erro', 'Erro ao buscar itens: ' + response.error, 'danger');
                 }
             },
             error: function (xhr) {
-                alert('Erro ao buscar itens: ' + xhr.responseText);
+                showNotificationModal('Erro', 'Erro ao buscar itens: ' + xhr.responseText, 'danger');
             }
         });
     }

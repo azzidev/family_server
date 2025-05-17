@@ -1,6 +1,7 @@
 <?php
 session_start();
 include '../../../server/db/connection.php';
+include '../../../root/cmd/config.php';
 
 // Verifique se o usuário está autenticado
 if (!isset($_SESSION['user_id'])) {
@@ -8,6 +9,7 @@ if (!isset($_SESSION['user_id'])) {
     echo json_encode(['error' => 'Usuário não autenticado.']);
     exit();
 }
+$config = getConfig();
 
 // Obtenha o método HTTP
 $method = $_SERVER['REQUEST_METHOD'];
@@ -139,11 +141,11 @@ try {
                 $listsHtml .= '<table class="table table-bordered mt-3">';
                 $listsHtml .= '<thead>';
                 $listsHtml .= '<tr>';
-                $listsHtml .= '<th style="max-width: 90px;">Data</th>';
-                $listsHtml .= '<th>Nome</th>';
-                $listsHtml .= '<th>Tipo</th>';
-                $listsHtml .= '<th>Valor</th>';
-                $listsHtml .= '<th style="width: 50px;">Ações</th>';
+                $listsHtml .= '<th class="text-center" style="max-width: 90px;">Data</th>';
+                $listsHtml .= '<th class="text-center">Nome</th>';
+                $listsHtml .= '<th class="text-center">Tipo</th>';
+                $listsHtml .= '<th class="text-center">Valor</th>';
+                $listsHtml .= '<th class="text-center" style="width: 40px;"></th>';
                 $listsHtml .= '</tr>';
                 $listsHtml .= '</thead>';
                 $listsHtml .= '<tbody>';
@@ -168,7 +170,7 @@ try {
                         $listsHtml .= ' <span class="text-muted">(' . number_format($totalCurrentInstallments, 2, ',', '.') . ' - ' . number_format($totalInstallments, 2, ',', '.') . ')</span>';
                     }
                     $listsHtml .= '</td>';
-                    $listsHtml .= '<td class="text-center"><button class="btn btn-sm btn-danger delete-item" data-item-id="' . $item['_id'] . '">X</button></td>';
+                    $listsHtml .= '<td class="text-center"><button class="btn btn-sm btn-danger d-flex align-items-center justify-content-center py-1 px-1 pb-2 rounded-pill delete-item" data-item-id="' . $item['_id'] . '"><img src="'.$config['base_url'].$config['icon_path'].'/trash_thin.svg"  style="width: 16px; height: 16px; filter: invert(1);"></button></td>';
                     $listsHtml .= '</tr>';
                 }
         

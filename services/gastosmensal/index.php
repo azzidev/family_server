@@ -222,8 +222,14 @@
             </div>
         </div> 
 
-        <div class="row mb-3 justify-content-end">
-            <div class="col-md-3">
+        <div class="row mb-3">
+            <div class="col-md-3 d-flex align-items-end justify-content-start">
+                <div class="pagination">
+                    <li class="page-item cursor-pointer active"><a class="page-link">Período atual</a></li>
+                    <li class="page-item cursor-pointer"><a class="page-link">Mês atual</a></li>
+                </div>
+            </div>
+            <div class="col-md-3 ms-auto">
                 <div class="form-group">
                     <label for="start-period-filter">Data inicial</label>
                     <input type="date" id="start-period-filter" name="start-period-filter" class="form-control" value="<?=date('Y-m-d')?>">
@@ -304,11 +310,11 @@
                                                 <table class="table table-bordered mt-3">
                                                     <thead>
                                                         <tr>
-                                                            <th style="max-width: 90px;">Data</th>
-                                                            <th>Nome</th>
-                                                            <th>Tipo</th>
-                                                            <th>Valor</th>
-                                                            <th style="width: 50px;">Ações</th>
+                                                            <th class="text-center" style="max-width: 90px;">Data</th>
+                                                            <th class="text-center">Nome</th>
+                                                            <th class="text-center">Tipo</th>
+                                                            <th class="text-center">Valor</th>
+                                                            <th class="text-center" style="width: 40px;"></th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -341,7 +347,7 @@
                                                                     <?php endif; ?>
                                                                 </td>
                                                                 <td class="text-center">
-                                                                    <button class="btn btn-sm btn-danger delete-item" data-item-id="<?= $item['_id'] ?>">X</button>
+                                                                    <button class="btn btn-sm btn-danger d-flex align-items-center justify-content-center py-1 px-1 pb-2 rounded-pill delete-item" data-item-id="<?= $item['_id'] ?>"><img src="<?=$config['base_url'].$config['icon_path']?>/trash_thin.svg"  style="width: 16px; height: 16px; filter: invert(1);"></button>
                                                                 </td>
                                                             </tr>
                                                         <?php endforeach; ?>
@@ -554,7 +560,7 @@
                 <div class="modal-body">
                     <p id="deleteConfirmMessage">Tem certeza que deseja excluir este item?</p>
                     <div class="form-check delete-installment-options" style="display: none;">
-                        <input class="form-check-input" type="checkbox" id="deleteAllInstallments">
+                        <input class="form-check-input" type="checkbox" checked id="deleteAllInstallments">
                         <label class="form-check-label" for="deleteAllInstallments">
                             Excluir todas as parcelas deste item
                         </label>
@@ -573,7 +579,102 @@
     let itemToDelete = null;
     let deleteAllInstallments = false;
     
-    // Adicionar evento de clique para botões de exclusão
+    // Função para mostrar notificações em modal
+    function showNotificationModal(title, message, type = 'info') {
+        // Verificar se o modal já existe
+        if ($('#notificationModal').length === 0) {
+            // Criar o modal dinamicamente
+            $('body').append(`
+                <div class="modal fade" id="notificationModal" tabindex="-1" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title"></h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                            </div>
+                            <div class="modal-body"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `);
+        }
+        
+        const $modal = $('#notificationModal');
+        $modal.find('.modal-title').text(title);
+        $modal.find('.modal-body').html(message);
+        
+        // Remover classes anteriores
+        $modal.find('.modal-header').removeClass('bg-success bg-danger bg-warning bg-info');
+        
+        // Adicionar classe de acordo com o tipo
+        switch(type) {
+            case 'success':
+                $modal.find('.modal-header').addClass('bg-success text-white');
+                break;
+            case 'danger':
+                $modal.find('.modal-header').addClass('bg-danger text-white');
+                break;
+            case 'warning':
+                $modal.find('.modal-header').addClass('bg-warning');
+                break;
+            default:
+                $modal.find('.modal-header').addClass('bg-info text-white');
+        }
+        
+        // Mostrar o modal
+        const notificationModal = new bootstrap.Modal($modal[0]);
+        notificationModal.show();
+    }
+    
+    // Manipulação da paginação (Período atual / Mês atual)
+    $(document).ready(function() {
+        // Armazenar os valores originais dos inputs de data
+        const originalStartDate = $('#start-period-filter').val();
+        const originalEndDate = $('#end-period-filter').val();
+        
+        // Manipular clique nos itens da paginação
+        $('.pagination .page-item').click(function() {
+            // Remover classe active de todos os itens
+            $('.pagination .page-item').removeClass('active');
+            // Adicionar classe active ao item clicado
+            $(this).addClass('active');
+            
+            // Verificar qual opção foi selecionada
+            const selectedOption = $(this).find('.page-link').text();
+            
+            if (selectedOption === 'Mês atual') {
+                // Definir primeiro e último dia do mês atual
+                const firstDay = new Date();
+                firstDay.setDate(1);
+                
+                const lastDay = new Date();
+                lastDay.setMonth(lastDay.getMonth() + 1);
+                lastDay.setDate(0);
+                
+                // Formatar as datas para o formato YYYY-MM-DD
+                const firstDayFormatted = firstDay.toISOString().split('T')[0];
+                const lastDayFormatted = lastDay.toISOString().split('T')[0];
+                
+                // Atualizar os inputs de data
+                $('#start-period-filter').val(firstDayFormatted);
+                $('#end-period-filter').val(lastDayFormatted);
+                
+                // Disparar evento change nos inputs
+                $('#start-period-filter, #end-period-filter').trigger('change');
+            } else if (selectedOption === 'Período atual') {
+                // Restaurar os valores originais
+                $('#start-period-filter').val(originalStartDate);
+                $('#end-period-filter').val(originalEndDate);
+                
+                // Disparar evento change nos inputs
+                $('#start-period-filter, #end-period-filter').trigger('change');
+            }
+        });
+    });
+    
     // Adicionar evento de clique para botões de exclusão
     $(document).on('click', '.delete-item', function(e) {
         e.preventDefault();
@@ -590,10 +691,11 @@
             $('.delete-installment-options').show();
             $('#deleteConfirmModal').modal('show');
         } else {
-            // Se não for parcelado, excluir diretamente
-            if (confirm('Tem certeza que deseja excluir este item?')) {
-                deleteItem(itemToDelete, false);
-            }
+            // Se não for parcelado, mostrar o modal de confirmação simples
+            $('#deleteConfirmModalLabel').text('Excluir Item');
+            $('#deleteConfirmMessage').text('Tem certeza que deseja excluir este item?');
+            $('.delete-installment-options').hide();
+            $('#deleteConfirmModal').modal('show');
         }
     });
 
@@ -640,13 +742,14 @@
                         location.reload();
                     }
                     
-                    alert(response.message);
+                    // Mostrar mensagem de sucesso em um modal
+                    showNotificationModal('Sucesso', response.message, 'success');
                 } else {
-                    alert('Erro ao excluir item: ' + (response.error || 'Erro desconhecido'));
+                    showNotificationModal('Erro', 'Erro ao excluir item: ' + (response.error || 'Erro desconhecido'), 'danger');
                 }
             },
             error: function(xhr) {
-                alert('Erro ao excluir item: ' + xhr.responseText);
+                showNotificationModal('Erro', 'Erro ao excluir item: ' + xhr.responseText, 'danger');
             }
         });
     }
