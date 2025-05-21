@@ -133,12 +133,12 @@ try {
             $listsHtml .= 'Criado em: ' . date("d/m/Y H:i:s", strtotime($list['date']['created']));
             $listsHtml .= '</p>';
             $listsHtml .= '</div>';
-            $listsHtml .= '<div class="card-body">';
+            $listsHtml .= '<div class="card-body p-0">';
         
             if (empty($list['items'])) {
                 $listsHtml .= '<p class="text-warning">Nenhum item encontrado para este período.</p>';
             } else {
-                $listsHtml .= '<table class="table table-bordered mt-3">';
+                $listsHtml .= '<table class="table  table-striped mt-3">';
                 $listsHtml .= '<thead>';
                 $listsHtml .= '<tr>';
                 $listsHtml .= '<th class="text-center" style="max-width: 90px;">Data</th>';
@@ -161,7 +161,7 @@ try {
                     $totalCurrentInstallments = $installments ? $price * $currentInstallments : $price;
         
                     $listsHtml .= '<tr data-item-id="' . $item['_id'] . '" data-installments="' . ($installments ? 'true' : 'false') . '">';
-                    $listsHtml .= '<td>' . date("d/m/Y", strtotime($item['date_buy'])) . '</td>';
+                    $listsHtml .= '<td>' . date("d/m", strtotime($item['date_buy'])) . '</td>';
                     $listsHtml .= '<td>' . htmlspecialchars($item['name']) . '</td>';
                     $listsHtml .= '<td>' . ($installments ? $currentInstallments . '/' . $installments : 'À vista') . '</td>';
                     $listsHtml .= '<td>';

@@ -16,8 +16,19 @@
     // Fetch lists from the database
     $lists = [];
     try {
-        $start_date = date('Y-m-d'); // Data atual
-        $end_date = date('Y-m-d', strtotime('+1 month')); // Data atual + 1 mês
+        // Verificar se existem cookies com as datas
+        if(isset($_COOKIE['gm_start_date']) && isset($_COOKIE['gm_end_date'])) {
+            $start_date = $_COOKIE['gm_start_date'];
+            $end_date = $_COOKIE['gm_end_date'];
+        } else {
+            // Definir datas padrão (mês atual)
+            $start_date = date('Y-m-01'); // Primeiro dia do mês atual
+            $end_date = date('Y-m-t'); // Último dia do mês atual
+            
+            // Salvar em cookies (válidos por 30 dias)
+            setcookie('gm_start_date', $start_date, time() + (86400 * 30), "/");
+            setcookie('gm_end_date', $end_date, time() + (86400 * 30), "/");
+        }
         
         // Formatar as datas para incluir o horário completo
         $start_date_formatted = $start_date . ' 00:00:00';
@@ -223,22 +234,23 @@
         </div> 
 
         <div class="row mb-3">
-            <div class="col-md-3 d-flex align-items-end justify-content-start">
+            <div class="col-md-4 d-flex align-items-end justify-content-start">
                 <div class="pagination">
-                    <li class="page-item cursor-pointer active"><a class="page-link">Período atual</a></li>
+                    <li class="page-item cursor-pointer" id="previous-month-btn"><a class="page-link">Mês passado</a></li>
+                    <li class="page-item cursor-pointer"><a class="page-link">Período atual</a></li>
                     <li class="page-item cursor-pointer"><a class="page-link">Mês atual</a></li>
                 </div>
             </div>
             <div class="col-md-3 ms-auto">
                 <div class="form-group">
                     <label for="start-period-filter">Data inicial</label>
-                    <input type="date" id="start-period-filter" name="start-period-filter" class="form-control" value="<?=date('Y-m-d')?>">
+                    <input type="date" id="start-period-filter" name="start-period-filter" class="form-control" value="<?= $start_date ?>">
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="end-period-filter">Data final</label>
-                    <input type="date" id="end-period-filter" name="end-period-filter" class="form-control" value="<?=date('Y-m-d', strtotime( '+1 month'))?>">
+                    <input type="date" id="end-period-filter" name="end-period-filter" class="form-control" value="<?= $end_date ?>">
                 </div>
             </div>
         </div>
@@ -288,7 +300,7 @@
                                                 Criado em: <?= date("d/m/Y H:i:s", strtotime(json_decode($list['date'], true)['created'])) ?>
                                             </p>
                                         </div>
-                                        <div class="card-body">
+                                        <div class="card-body p-0">
                                             <?php
                                                 // Fetch items for the current list
                                                 $items = [];
@@ -307,7 +319,7 @@
                                             <?php if (empty($items)): ?>
                                                 <p class="text-warning">Nenhum item encontrado para este período.</p>
                                             <?php else: ?>
-                                                <table class="table table-bordered mt-3">
+                                                <table class="table  table-striped mt-3">
                                                     <thead>
                                                         <tr>
                                                             <th class="text-center" style="max-width: 90px;">Data</th>
@@ -337,7 +349,7 @@
                                                                 }
                                                         ?>
                                                             <tr data-installments="<?= $installments ? 'true' : 'false' ?>">
-                                                                <td><?= date("d/m/Y", strtotime($item['date_buy'])) ?></td>
+                                                                <td><?= date("d/m", strtotime($item['date_buy'])) ?></td>
                                                                 <td><?= htmlspecialchars($item['name']) ?></td>
                                                                 <td><?= $installments ? $currentInstallments .'/'. $installments : 'À vista' ?></td>
                                                                 <td>
@@ -444,7 +456,7 @@
 
     <!-- Modal para Criar Lista -->
     <div class="modal fade" id="addListModal" tabindex="-1" aria-labelledby="addListModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <form id="addListForm">
                     <div class="modal-header">
@@ -488,7 +500,7 @@
 
     <!-- Modal para Adicionar Item -->
     <div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <form id="addItemForm">
                     <div class="modal-header">
@@ -551,7 +563,7 @@
     
     <!-- Modal de confirmação de exclusão -->
     <div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="deleteConfirmModalLabel">Excluir Item</h5>
@@ -586,7 +598,7 @@
             // Criar o modal dinamicamente
             $('body').append(`
                 <div class="modal fade" id="notificationModal" tabindex="-1" aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title"></h5>
@@ -629,12 +641,8 @@
         notificationModal.show();
     }
     
-    // Manipulação da paginação (Período atual / Mês atual)
+    // Manipulação da paginação (Período atual / Mês atual / Mês passado)
     $(document).ready(function() {
-        // Armazenar os valores originais dos inputs de data
-        const originalStartDate = $('#start-period-filter').val();
-        const originalEndDate = $('#end-period-filter').val();
-        
         // Manipular clique nos itens da paginação
         $('.pagination .page-item').click(function() {
             // Remover classe active de todos os itens
@@ -662,12 +670,49 @@
                 $('#start-period-filter').val(firstDayFormatted);
                 $('#end-period-filter').val(lastDayFormatted);
                 
+                // Salvar em cookies
+                document.cookie = `gm_start_date=${firstDayFormatted}; path=/; max-age=${60*60*24*30}`;
+                document.cookie = `gm_end_date=${lastDayFormatted}; path=/; max-age=${60*60*24*30}`;
+                
+                // Disparar evento change nos inputs
+                $('#start-period-filter, #end-period-filter').trigger('change');
+            } else if (selectedOption === 'Mês passado') {
+                // Definir primeiro e último dia do mês passado
+                const today = new Date();
+                const firstDay = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+                const lastDay = new Date(today.getFullYear(), today.getMonth(), 0);
+                
+                // Formatar as datas para o formato YYYY-MM-DD
+                const firstDayFormatted = firstDay.toISOString().split('T')[0];
+                const lastDayFormatted = lastDay.toISOString().split('T')[0];
+                
+                // Atualizar os inputs de data
+                $('#start-period-filter').val(firstDayFormatted);
+                $('#end-period-filter').val(lastDayFormatted);
+                
+                // Salvar em cookies
+                document.cookie = `gm_start_date=${firstDayFormatted}; path=/; max-age=${60*60*24*30}`;
+                document.cookie = `gm_end_date=${lastDayFormatted}; path=/; max-age=${60*60*24*30}`;
+                
                 // Disparar evento change nos inputs
                 $('#start-period-filter, #end-period-filter').trigger('change');
             } else if (selectedOption === 'Período atual') {
-                // Restaurar os valores originais
-                $('#start-period-filter').val(originalStartDate);
-                $('#end-period-filter').val(originalEndDate);
+                // Definir data atual e data atual + 1 mês
+                const today = new Date();
+                const nextMonth = new Date();
+                nextMonth.setMonth(nextMonth.getMonth() + 1);
+                
+                // Formatar as datas para o formato YYYY-MM-DD
+                const todayFormatted = today.toISOString().split('T')[0];
+                const nextMonthFormatted = nextMonth.toISOString().split('T')[0];
+                
+                // Atualizar os inputs de data
+                $('#start-period-filter').val(todayFormatted);
+                $('#end-period-filter').val(nextMonthFormatted);
+                
+                // Salvar em cookies
+                document.cookie = `gm_start_date=${todayFormatted}; path=/; max-age=${60*60*24*30}`;
+                document.cookie = `gm_end_date=${nextMonthFormatted}; path=/; max-age=${60*60*24*30}`;
                 
                 // Disparar evento change nos inputs
                 $('#start-period-filter, #end-period-filter').trigger('change');
@@ -737,9 +782,6 @@
                             console.log(`Encontrados ${$statementItems.length} itens no extrato para o ID ${id}`);
                             $statementItems.remove();
                         });
-                        
-                        // Recarregar a página para garantir que tudo seja atualizado
-                        location.reload();
                     }
                     
                     // Mostrar mensagem de sucesso em um modal

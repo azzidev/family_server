@@ -77,6 +77,7 @@ $(document).ready(function () {
     const $listStartDate = $('#listStartDate');
     const $listEndDate = $('#listEndDate');
     const $itemList = $('#itemList');
+    const $itemDate = $('#itemDate');
 
     // Alterar tipo de input para date
     $listStartDate.attr('type', 'date');
@@ -89,6 +90,9 @@ $(document).ready(function () {
 
     // Open Add Item Modal
     $addItemButton.on('click', function () {
+        // Ao abrir o modal, carregar as listas para a data atual
+        const currentDate = $itemDate.val();
+        loadListsForDate(currentDate);
         addItemModal.show();
     });
 
@@ -110,6 +114,63 @@ $(document).ready(function () {
             $currentInstallment.val(1);
         }
     });
+    
+    // Filtrar listas com base na data selecionada
+    $itemDate.on('change', function() {
+        const selectedDate = $(this).val();
+        loadListsForDate(selectedDate);
+    });
+    
+    // Função para carregar listas com base na data
+    function loadListsForDate(date) {
+        // Limpar o dropdown de listas
+        $itemList.empty();
+        $itemList.append('<option value="" disabled selected>Carregando listas...</option>');
+        
+        // Buscar listas para a data selecionada
+        $.ajax({
+            url: './api/lists.php',
+            method: 'GET',
+            data: {
+                start_date: $startPeriodFilter.val(),
+                end_date: $endPeriodFilter.val()
+            },
+            success: function(response) {
+                // Limpar o dropdown
+                $itemList.empty();
+                $itemList.append('<option value="" disabled selected>Selecione uma lista</option>');
+                
+                // Verificar se a resposta é uma string e tentar convertê-la para objeto
+                if (typeof response === 'string') {
+                    try {
+                        response = JSON.parse(response);
+                    } catch (e) {
+                        console.error('Erro ao parsear resposta:', e);
+                    }
+                }
+                
+                // Adicionar as listas ao dropdown
+                if (response && response.success && response.lists) {
+                    if (response.lists.length === 0) {
+                        $itemList.append('<option value="" disabled>Nenhuma lista disponível para esta data</option>');
+                    } else {
+                        response.lists.forEach(function(list) {
+                            $itemList.append(`<option value="${list._id}">${list.name}</option>`);
+                        });
+                    }
+                } else {
+                    $itemList.append('<option value="" disabled>Erro ao carregar listas</option>');
+                    console.error('Erro ao buscar listas:', response);
+                }
+            },
+            error: function(xhr) {
+                $itemList.empty();
+                $itemList.append('<option value="" disabled selected>Selecione uma lista</option>');
+                $itemList.append('<option value="" disabled>Erro ao carregar listas</option>');
+                console.error('Erro ao buscar listas:', xhr.responseText);
+            }
+        });
+    }
 
     // Handle Add Item Form Submission
     $addItemForm.on('submit', function (e) {
@@ -319,7 +380,7 @@ $(document).ready(function () {
             
             // Adicionar tabela
             $cardBody.html(`
-                <table class="table table-bordered mt-3">
+                <table class="table  table-striped mt-3">
                     <thead>
                         <tr>
                             <th style="max-width: 90px;">Data</th>
@@ -513,7 +574,50 @@ $(document).ready(function () {
         return date.toLocaleDateString('pt-BR') + ' ' + date.toLocaleTimeString('pt-BR');
     }
 
+    // Função para definir o período do mês passado
+    function setPreviousMonth() {
+        const today = new Date();
+        const firstDayPrevMonth = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+        const lastDayPrevMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+        
+        // Formatar as datas no formato YYYY-MM-DD
+        const firstDay = firstDayPrevMonth.toISOString().split('T')[0];
+        const lastDay = lastDayPrevMonth.toISOString().split('T')[0];
+        
+        // Definir os valores nos inputs
+        $startPeriodFilter.val(firstDay);
+        $endPeriodFilter.val(lastDay);
+        
+        // Salvar em cookies
+        setCookie('gm_start_date', firstDay, 30);
+        setCookie('gm_end_date', lastDay, 30);
+        
+        // Atualizar os dados
+        fetchFilteredItems();
+    }
+    
+    // Função para definir cookies
+    function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+    
+    // Adicionar evento ao botão do mês passado
+    $('#previous-month-btn').on('click', function(e) {
+        e.preventDefault();
+        setPreviousMonth();
+    });
+    
     // Adiciona evento de mudança nos filtros
-    $startPeriodFilter.on('change', fetchFilteredItems);
-    $endPeriodFilter.on('change', fetchFilteredItems);
+    $startPeriodFilter.on('change', function() {
+        setCookie('gm_start_date', $(this).val(), 30);
+        fetchFilteredItems();
+    });
+    
+    $endPeriodFilter.on('change', function() {
+        setCookie('gm_end_date', $(this).val(), 30);
+        fetchFilteredItems();
+    });
 });

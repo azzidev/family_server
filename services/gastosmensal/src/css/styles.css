@@ -31,32 +31,3 @@ p,td,th,span{
 .floating-menu.show {
     display: flex;
 }
-
-table{
-    border-radius: 12px !important;
-    overflow: hidden;
-}
-
-thead>tr>th, tfoot>tr>td{
-    background: var(--bs-table-border-color) !important;
-}
-
-thead{
-    border-radius: 10px 0px 0px 10px !important;
-}
-
-thead>tr{
-    border-radius: 10px 0px 0px 10px !important;
-}
-
-tfoot{
-    border-radius: 0px 10px 10px 0px !important;
-}
-
-tfoot>tr{
-    border-radius: 0px 10px 10px 0px !important;
-}
-
-.cursor-pointer{
-    cursor: pointer;
-}

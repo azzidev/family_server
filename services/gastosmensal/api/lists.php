@@ -14,7 +14,60 @@ $method = $_SERVER['REQUEST_METHOD'];
 
 // Processa a requisição
 try {
-    if ($method === 'POST') {
+    if ($method === 'GET') {
+        // Obtenha os parâmetros de data
+        $startDate = isset($_GET['start_date']) ? $_GET['start_date'] : null;
+        $endDate = isset($_GET['end_date']) ? $_GET['end_date'] : null;
+        
+        // Validação dos parâmetros
+        if (!$startDate || !$endDate) {
+            throw new Exception('Parâmetros de data não fornecidos.');
+        }
+        
+        // Formatar as datas para comparação
+        $startDateFormatted = $startDate . ' 00:00:00';
+        $endDateFormatted = $endDate . ' 23:59:59';
+        
+        // Buscar listas que se encaixam no período
+        $stmt = $conn->prepare("
+            SELECT gl._id, gl.name, gl.description, gl.type, gl.period, gl.date
+            FROM gastosmensal_lists gl
+            WHERE gl._id_user = :user_id
+            AND (
+                (JSON_EXTRACT(gl.period, '$.start') >= :start_date AND JSON_EXTRACT(gl.period, '$.start') <= :end_date)
+                OR
+                (JSON_EXTRACT(gl.period, '$.end') >= :start_date AND JSON_EXTRACT(gl.period, '$.end') <= :end_date)
+                OR
+                (JSON_EXTRACT(gl.period, '$.start') <= :start_date AND JSON_EXTRACT(gl.period, '$.end') >= :end_date)
+            )
+            ORDER BY JSON_EXTRACT(gl.period, '$.start') DESC
+        ");
+        
+        $stmt->bindParam(':user_id', $_SESSION['user_id']);
+        $stmt->bindParam(':start_date', $startDateFormatted);
+        $stmt->bindParam(':end_date', $endDateFormatted);
+        $stmt->execute();
+        
+        $lists = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        
+        // Processar os resultados
+        $processedLists = [];
+        foreach ($lists as $list) {
+            // Decodificar os campos JSON
+            $list['type'] = json_decode($list['type'], true);
+            $list['period'] = json_decode($list['period'], true);
+            $list['date'] = json_decode($list['date'], true);
+            
+            $processedLists[] = $list;
+        }
+        
+        // Retornar os resultados
+        header('Content-Type: application/json');
+        echo json_encode([
+            'success' => true,
+            'lists' => $processedLists
+        ]);
+    } else if ($method === 'POST') {
         // Criação de uma nova lista
         $data = json_decode(file_get_contents('php://input'), true);
 
