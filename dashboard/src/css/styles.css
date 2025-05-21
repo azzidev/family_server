@@ -1,0 +1,19 @@
+.service-icon button {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #fff;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    user-select: none;
+}
+
+.service-icon button:hover {
+    transform: scale(1.1);
+    background-color: #fff;
+    color: #333;
+}
+
+.service-icon p {
+    color: #fff;
+    font-size: 14px;
+    margin-top: 8px;
+}
