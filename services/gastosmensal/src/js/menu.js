@@ -323,7 +323,7 @@ $(document).ready(function () {
                         </p>
                     </div>
                     <div class="card-body">
-                        <p class="text-warning">Nenhum item encontrado para este período.</p>
+                        <p class="text-warning p-3 pb-0">Nenhum item encontrado para este período.</p>
                     </div>
                 </div>
             </div>
@@ -380,7 +380,7 @@ $(document).ready(function () {
             
             // Adicionar tabela
             $cardBody.html(`
-                <table class="table  table-striped mt-3">
+                <table class="table table-striped mb-0 mt-3">
                     <thead>
                         <tr>
                             <th style="max-width: 90px;">Data</th>
@@ -392,8 +392,8 @@ $(document).ready(function () {
                     <tbody></tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="3" class="text-end"><strong>Total:</strong></td>
-                            <td><strong>R$ 0,00</strong></td>
+                            <td colspan="3" class="text-end border-0"><strong>Total:</strong></td>
+                            <td class="border-0"><strong>R$ 0,00</strong></td>
                         </tr>
                     </tfoot>
                 </table>

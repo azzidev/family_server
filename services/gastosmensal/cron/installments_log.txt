@@ -504,3 +504,448 @@
 [2025-05-15 21:26:22] Processando item Teste de item parcelado333 - Parcela 2/3
 [2025-05-15 21:26:22] Nova parcela criada com ID: 73 para o item Teste de item parcelado333 (2/3)
 [2025-05-15 21:26:22] Processamento concluído com sucesso
+[2025-05-21 21:19:36] Iniciando processamento de parcelas
+[2025-05-21 21:19:36] DEBUG - Item completo: Array
+(
+    [_id] => 3
+    [_id_user] => 1
+    [_id_list] => 1
+    [name] => Seguro Apto (03/10)
+    [price] => {"price": 15.42, "current_installment": 3, "installments": 10, "total": 154.20}
+    [date_buy] => 2025-04-01
+    [date] => {"created": "2025-05-02 18:08:10", "updated": "2025-05-02 18:08:10"}
+    [list_name] => Cartão Itaú
+    [list_id] => 1
+    [list_period] => {
+"start": "2025-04-01 00:00:00",
+"end": "2025-04-30 23:59:59"
+}
+)
+
+[2025-05-21 21:19:36] DEBUG - Lista período: {
+"start": "2025-04-01 00:00:00",
+"end": "2025-04-30 23:59:59"
+}
+[2025-05-21 21:19:36] DEBUG - Lista ID: 1
+[2025-05-21 21:19:36] DEBUG - Lista encontrada no processamento: SIM
+[2025-05-21 21:19:36] Período de processamento: de 2025-04-21 até 2025-06-21
+[2025-05-21 21:19:36] Encontrados 2 usuários com itens parcelados
+[2025-05-21 21:19:36] Processando usuário ID: 1
+[2025-05-21 21:19:36] Encontrados 17 itens parcelados para o usuário 1
+[2025-05-21 21:19:36] Processando lista Cartão Itaú (ID: 1) com 5 itens parcelados
+[2025-05-21 21:19:36] Usando lista existente com ID: 18
+[2025-05-21 21:19:36] Processando item Panelas Red Silver - Parcela 9/12
+[2025-05-21 21:19:36] Item Panelas Red Silver (parcela 9) já existe na próxima lista. Ignorando.
+[2025-05-21 21:19:36] Processando item Mochila Duda (03/06) - Parcela 4/6
+[2025-05-21 21:19:36] Item Mochila Duda (03/06) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-05-21 21:19:36] Processando item Seguro Apto (03/10) - Parcela 4/10
+[2025-05-21 21:19:36] Item Seguro Apto (03/10) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-05-21 21:19:36] Processando item Cartucho Impressora (02/05) - Parcela 3/5
+[2025-05-21 21:19:36] Item Cartucho Impressora (02/05) (parcela 3) já existe na próxima lista. Ignorando.
+[2025-05-21 21:19:36] Processando item Whey - Parcela 2/2
+[2025-05-21 21:19:36] Item Whey (parcela 2) já existe na próxima lista. Ignorando.
+[2025-05-21 21:19:36] Processando lista Cartão Nubank (ID: 2) com 1 itens parcelados
+[2025-05-21 21:19:36] Usando lista existente com ID: 19
+[2025-05-21 21:19:36] Processando item Academia (01/03) - Parcela 2/3
+[2025-05-21 21:19:36] Item Academia (01/03) (parcela 2) já existe na próxima lista. Ignorando.
+[2025-05-21 21:19:36] Processando lista Cartão Itaú (ID: 18) com 5 itens parcelados
+[2025-05-21 21:19:36] Usando lista existente com ID: 21
+[2025-05-21 21:19:36] Processando item Panelas Red Silver - Parcela 10/12
+[2025-05-21 21:19:36] Item Panelas Red Silver (parcela 10) já existe na próxima lista. Ignorando.
+[2025-05-21 21:19:36] Processando item Mochila Duda (03/06) - Parcela 5/6
+[2025-05-21 21:19:36] Item Mochila Duda (03/06) (parcela 5) já existe na próxima lista. Ignorando.
+[2025-05-21 21:19:36] Processando item Seguro Apto (03/10) - Parcela 5/10
+[2025-05-21 21:19:36] Item Seguro Apto (03/10) (parcela 5) já existe na próxima lista. Ignorando.
+[2025-05-21 21:19:36] Processando item Cartucho Impressora (02/05) - Parcela 4/5
+[2025-05-21 21:19:36] Item Cartucho Impressora (02/05) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-05-21 21:19:36] Processando lista Cartão Nubank (ID: 19) com 1 itens parcelados
+[2025-05-21 21:19:36] Usando lista existente com ID: 22
+[2025-05-21 21:19:36] Processando item Academia (01/03) - Parcela 3/3
+[2025-05-21 21:19:36] Item Academia (01/03) (parcela 3) já existe na próxima lista. Ignorando.
+[2025-05-21 21:19:36] Processando lista Cartão Itaú (ID: 21) com 4 itens parcelados
+[2025-05-21 21:19:36] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-21 21:19:36] Processando lista Cartão Nubank (ID: 22) com 1 itens parcelados
+[2025-05-21 21:19:36] Próximo período (2025-07-01) está fora do intervalo de processamento. Ignorando.
+[2025-05-21 21:19:36] Processando usuário ID: 2
+[2025-05-21 21:19:36] Encontrados 1 itens parcelados para o usuário 2
+[2025-05-21 21:19:36] Processando lista TESTE DE LISTA (ID: 24) com 1 itens parcelados
+[2025-05-21 21:19:36] Usando lista existente com ID: 26
+[2025-05-21 21:19:36] Processando item ITEM PARCELADINHO - Parcela 2/6
+[2025-05-21 21:19:36] Nova parcela criada com ID: 90 para o item ITEM PARCELADINHO (2/6)
+[2025-05-21 21:19:36] Processamento concluído com sucesso
+[2025-06-07 13:43:20] Iniciando processamento de parcelas
+[2025-06-07 13:43:20] DEBUG - Item completo: Array
+(
+    [_id] => 3
+    [_id_user] => 1
+    [_id_list] => 1
+    [name] => Seguro Apto (03/10)
+    [price] => {"price":15.42,"current_installment":3,"installments":10,"total":154.2,"installment_group_id":"cGFyY2VsYV82ODJlNmZmOTJmOTBmMC41MzA3NzUxOQ=="}
+    [date_buy] => 2025-04-01
+    [date] => {"created": "2025-05-02 18:08:10", "updated": "2025-05-02 18:08:10"}
+    [list_name] => Cartão Itaú
+    [list_id] => 1
+    [list_period] => {
+"start": "2025-04-01 00:00:00",
+"end": "2025-04-30 23:59:59"
+}
+)
+
+[2025-06-07 13:43:20] DEBUG - Lista período: {
+"start": "2025-04-01 00:00:00",
+"end": "2025-04-30 23:59:59"
+}
+[2025-06-07 13:43:20] DEBUG - Lista ID: 1
+[2025-06-07 13:43:20] DEBUG - Lista encontrada no processamento: SIM
+[2025-06-07 13:43:20] Período de processamento: de 2025-05-07 até 2025-07-07
+[2025-06-07 13:43:20] Encontrados 2 usuários com itens parcelados
+[2025-06-07 13:43:20] Processando usuário ID: 1
+[2025-06-07 13:43:20] Encontrados 17 itens parcelados para o usuário 1
+[2025-06-07 13:43:20] Processando lista Cartão Itaú (ID: 1) com 5 itens parcelados
+[2025-06-07 13:43:20] Usando lista existente com ID: 18
+[2025-06-07 13:43:20] Processando item Panelas Red Silver - Parcela 9/12
+[2025-06-07 13:43:20] Nova parcela criada com ID: 95 para o item Panelas Red Silver (9/12)
+[2025-06-07 13:43:20] Processando item Mochila Duda (03/06) - Parcela 4/6
+[2025-06-07 13:43:20] Nova parcela criada com ID: 96 para o item Mochila Duda (03/06) (4/6)
+[2025-06-07 13:43:20] Processando item Seguro Apto (03/10) - Parcela 4/10
+[2025-06-07 13:43:20] Nova parcela criada com ID: 97 para o item Seguro Apto (03/10) (4/10)
+[2025-06-07 13:43:20] Processando item Cartucho Impressora (02/05) - Parcela 3/5
+[2025-06-07 13:43:20] Nova parcela criada com ID: 98 para o item Cartucho Impressora (02/05) (3/5)
+[2025-06-07 13:43:20] Processando item Whey - Parcela 2/2
+[2025-06-07 13:43:20] Nova parcela criada com ID: 99 para o item Whey (2/2)
+[2025-06-07 13:43:20] Processando lista Cartão Nubank (ID: 2) com 1 itens parcelados
+[2025-06-07 13:43:20] Usando lista existente com ID: 19
+[2025-06-07 13:43:20] Processando item Academia (01/03) - Parcela 2/3
+[2025-06-07 13:43:20] Nova parcela criada com ID: 100 para o item Academia (01/03) (2/3)
+[2025-06-07 13:43:20] Processando lista Cartão Itaú (ID: 18) com 5 itens parcelados
+[2025-06-07 13:43:20] Usando lista existente com ID: 21
+[2025-06-07 13:43:20] Processando item Panelas Red Silver - Parcela 10/12
+[2025-06-07 13:43:20] Nova parcela criada com ID: 101 para o item Panelas Red Silver (10/12)
+[2025-06-07 13:43:20] Processando item Mochila Duda (03/06) - Parcela 5/6
+[2025-06-07 13:43:20] Nova parcela criada com ID: 102 para o item Mochila Duda (03/06) (5/6)
+[2025-06-07 13:43:20] Processando item Seguro Apto (03/10) - Parcela 5/10
+[2025-06-07 13:43:20] Nova parcela criada com ID: 103 para o item Seguro Apto (03/10) (5/10)
+[2025-06-07 13:43:20] Processando item Cartucho Impressora (02/05) - Parcela 4/5
+[2025-06-07 13:43:20] Nova parcela criada com ID: 104 para o item Cartucho Impressora (02/05) (4/5)
+[2025-06-07 13:43:20] Processando lista Cartão Nubank (ID: 19) com 1 itens parcelados
+[2025-06-07 13:43:20] Usando lista existente com ID: 22
+[2025-06-07 13:43:20] Processando item Academia (01/03) - Parcela 3/3
+[2025-06-07 13:43:20] Nova parcela criada com ID: 105 para o item Academia (01/03) (3/3)
+[2025-06-07 13:43:20] Processando lista Cartão Itaú (ID: 21) com 4 itens parcelados
+[2025-06-07 13:43:20] Criando nova lista para o próximo período: Cartão Itaú
+[2025-06-07 13:43:20] Nova lista criada com ID: 29
+[2025-06-07 13:43:20] Processando item Panelas Red Silver - Parcela 11/12
+[2025-06-07 13:43:20] Nova parcela criada com ID: 106 para o item Panelas Red Silver (11/12)
+[2025-06-07 13:43:20] Processando item Mochila Duda (03/06) - Parcela 6/6
+[2025-06-07 13:43:20] Nova parcela criada com ID: 107 para o item Mochila Duda (03/06) (6/6)
+[2025-06-07 13:43:20] Processando item Seguro Apto (03/10) - Parcela 6/10
+[2025-06-07 13:43:20] Nova parcela criada com ID: 108 para o item Seguro Apto (03/10) (6/10)
+[2025-06-07 13:43:20] Processando item Cartucho Impressora (02/05) - Parcela 5/5
+[2025-06-07 13:43:20] Nova parcela criada com ID: 109 para o item Cartucho Impressora (02/05) (5/5)
+[2025-06-07 13:43:20] Processando lista Cartão Nubank (ID: 22) com 1 itens parcelados
+[2025-06-07 13:43:20] Criando nova lista para o próximo período: Cartão Nubank
+[2025-06-07 13:43:20] Nova lista criada com ID: 30
+[2025-06-07 13:43:20] Processando usuário ID: 2
+[2025-06-07 13:43:20] Encontrados 2 itens parcelados para o usuário 2
+[2025-06-07 13:43:20] Processando lista TESTE DE LISTA (ID: 24) com 1 itens parcelados
+[2025-06-07 13:43:20] Usando lista existente com ID: 26
+[2025-06-07 13:43:20] Processando item ITEM PARCELADINHO - Parcela 2/2
+[2025-06-07 13:43:20] Nova parcela criada com ID: 110 para o item ITEM PARCELADINHO (2/2)
+[2025-06-07 13:43:20] Processando lista TESTE DE LISTA (ID: 27) com 1 itens parcelados
+[2025-06-07 13:43:20] Criando nova lista para o próximo período: TESTE DE LISTA
+[2025-06-07 13:43:20] Nova lista criada com ID: 31
+[2025-06-07 13:43:20] Processando item ITEM PARCELADINHO - Parcela 2/2
+[2025-06-07 13:43:20] Nova parcela criada com ID: 111 para o item ITEM PARCELADINHO (2/2)
+[2025-06-07 13:43:20] Processamento concluído com sucesso
+[2025-06-07 13:59:33] Iniciando processamento de parcelas
+[2025-06-07 13:59:33] DEBUG - Item completo: Array
+(
+    [_id] => 3
+    [_id_user] => 1
+    [_id_list] => 1
+    [name] => Seguro Apto (03/10)
+    [price] => {"price":15.42,"current_installment":3,"installments":10,"total":154.2,"installment_group_id":"cGFyY2VsYV82ODJlNmZmOTJmOTBmMC41MzA3NzUxOQ=="}
+    [date_buy] => 2025-04-01
+    [date] => {"created": "2025-05-02 18:08:10", "updated": "2025-05-02 18:08:10"}
+    [list_name] => Cartão Itaú
+    [list_id] => 1
+    [list_period] => {
+"start": "2025-04-01 00:00:00",
+"end": "2025-04-30 23:59:59"
+}
+)
+
+[2025-06-07 13:59:33] DEBUG - Lista período: {
+"start": "2025-04-01 00:00:00",
+"end": "2025-04-30 23:59:59"
+}
+[2025-06-07 13:59:33] DEBUG - Lista ID: 1
+[2025-06-07 13:59:33] DEBUG - Lista encontrada no processamento: SIM
+[2025-06-07 13:59:33] Período de processamento: de 2025-05-07 até 2025-07-07
+[2025-06-07 13:59:33] Encontrados 2 usuários com itens parcelados
+[2025-06-07 13:59:33] Processando usuário ID: 1
+[2025-06-07 13:59:33] Encontrados 28 itens parcelados para o usuário 1
+[2025-06-07 13:59:33] Processando lista Cartão Itaú (ID: 1) com 5 itens parcelados
+[2025-06-07 13:59:33] Usando lista existente com ID: 18
+[2025-06-07 13:59:33] Processando item Panelas Red Silver - Parcela 9/12
+[2025-06-07 13:59:33] Verificando se o item Panelas Red Silver (parcela 9) já existe na lista 18
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Panelas Red Silver (parcela 9) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando item Mochila Duda (03/06) - Parcela 4/6
+[2025-06-07 13:59:33] Verificando se o item Mochila Duda (03/06) (parcela 4) já existe na lista 18
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Mochila Duda (03/06) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando item Seguro Apto (03/10) - Parcela 4/10
+[2025-06-07 13:59:33] Verificando se o item Seguro Apto (03/10) (parcela 4) já existe na lista 18
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Seguro Apto (03/10) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando item Cartucho Impressora (02/05) - Parcela 3/5
+[2025-06-07 13:59:33] Verificando se o item Cartucho Impressora (02/05) (parcela 3) já existe na lista 18
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Cartucho Impressora (02/05) (parcela 3) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando item Whey - Parcela 2/2
+[2025-06-07 13:59:33] Verificando se o item Whey (parcela 2) já existe na lista 18
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Whey (parcela 2) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando lista Cartão Nubank (ID: 2) com 1 itens parcelados
+[2025-06-07 13:59:33] Usando lista existente com ID: 19
+[2025-06-07 13:59:33] Processando item Academia (01/03) - Parcela 2/3
+[2025-06-07 13:59:33] Verificando se o item Academia (01/03) (parcela 2) já existe na lista 19
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Academia (01/03) (parcela 2) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando lista Cartão Itaú (ID: 18) com 9 itens parcelados
+[2025-06-07 13:59:33] Usando lista existente com ID: 21
+[2025-06-07 13:59:33] Processando item Panelas Red Silver - Parcela 10/12
+[2025-06-07 13:59:33] Verificando se o item Panelas Red Silver (parcela 10) já existe na lista 21
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Panelas Red Silver (parcela 10) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando item Mochila Duda (03/06) - Parcela 5/6
+[2025-06-07 13:59:33] Verificando se o item Mochila Duda (03/06) (parcela 5) já existe na lista 21
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Mochila Duda (03/06) (parcela 5) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando item Seguro Apto (03/10) - Parcela 5/10
+[2025-06-07 13:59:33] Verificando se o item Seguro Apto (03/10) (parcela 5) já existe na lista 21
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Seguro Apto (03/10) (parcela 5) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando item Cartucho Impressora (02/05) - Parcela 4/5
+[2025-06-07 13:59:33] Verificando se o item Cartucho Impressora (02/05) (parcela 4) já existe na lista 21
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Cartucho Impressora (02/05) (parcela 4) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando item Panelas Red Silver - Parcela 10/12
+[2025-06-07 13:59:33] Verificando se o item Panelas Red Silver (parcela 10) já existe na lista 21
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Nova parcela criada com ID: 114 para o item Panelas Red Silver (10/12)
+[2025-06-07 13:59:33] Processando item Mochila Duda (03/06) - Parcela 5/6
+[2025-06-07 13:59:33] Verificando se o item Mochila Duda (03/06) (parcela 5) já existe na lista 21
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Nova parcela criada com ID: 115 para o item Mochila Duda (03/06) (5/6)
+[2025-06-07 13:59:33] Processando item Seguro Apto (03/10) - Parcela 5/10
+[2025-06-07 13:59:33] Verificando se o item Seguro Apto (03/10) (parcela 5) já existe na lista 21
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Nova parcela criada com ID: 116 para o item Seguro Apto (03/10) (5/10)
+[2025-06-07 13:59:33] Processando item Cartucho Impressora (02/05) - Parcela 4/5
+[2025-06-07 13:59:33] Verificando se o item Cartucho Impressora (02/05) (parcela 4) já existe na lista 21
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Nova parcela criada com ID: 117 para o item Cartucho Impressora (02/05) (4/5)
+[2025-06-07 13:59:33] Processando lista Cartão Nubank (ID: 19) com 2 itens parcelados
+[2025-06-07 13:59:33] Usando lista existente com ID: 22
+[2025-06-07 13:59:33] Processando item Academia (01/03) - Parcela 3/3
+[2025-06-07 13:59:33] Verificando se o item Academia (01/03) (parcela 3) já existe na lista 22
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Academia (01/03) (parcela 3) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando item Academia (01/03) - Parcela 3/3
+[2025-06-07 13:59:33] Verificando se o item Academia (01/03) (parcela 3) já existe na lista 22
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Nova parcela criada com ID: 118 para o item Academia (01/03) (3/3)
+[2025-06-07 13:59:33] Processando lista Cartão Itaú (ID: 21) com 8 itens parcelados
+[2025-06-07 13:59:33] Usando lista existente com ID: 29
+[2025-06-07 13:59:33] Processando item Panelas Red Silver - Parcela 11/12
+[2025-06-07 13:59:33] Verificando se o item Panelas Red Silver (parcela 11) já existe na lista 29
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Panelas Red Silver (parcela 11) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando item Mochila Duda (03/06) - Parcela 6/6
+[2025-06-07 13:59:33] Verificando se o item Mochila Duda (03/06) (parcela 6) já existe na lista 29
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Mochila Duda (03/06) (parcela 6) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando item Seguro Apto (03/10) - Parcela 6/10
+[2025-06-07 13:59:33] Verificando se o item Seguro Apto (03/10) (parcela 6) já existe na lista 29
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Seguro Apto (03/10) (parcela 6) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando item Cartucho Impressora (02/05) - Parcela 5/5
+[2025-06-07 13:59:33] Verificando se o item Cartucho Impressora (02/05) (parcela 5) já existe na lista 29
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item Cartucho Impressora (02/05) (parcela 5) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando item Panelas Red Silver - Parcela 11/12
+[2025-06-07 13:59:33] Verificando se o item Panelas Red Silver (parcela 11) já existe na lista 29
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Nova parcela criada com ID: 119 para o item Panelas Red Silver (11/12)
+[2025-06-07 13:59:33] Processando item Mochila Duda (03/06) - Parcela 6/6
+[2025-06-07 13:59:33] Verificando se o item Mochila Duda (03/06) (parcela 6) já existe na lista 29
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Nova parcela criada com ID: 120 para o item Mochila Duda (03/06) (6/6)
+[2025-06-07 13:59:33] Processando item Seguro Apto (03/10) - Parcela 6/10
+[2025-06-07 13:59:33] Verificando se o item Seguro Apto (03/10) (parcela 6) já existe na lista 29
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Nova parcela criada com ID: 121 para o item Seguro Apto (03/10) (6/10)
+[2025-06-07 13:59:33] Processando item Cartucho Impressora (02/05) - Parcela 5/5
+[2025-06-07 13:59:33] Verificando se o item Cartucho Impressora (02/05) (parcela 5) já existe na lista 29
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Nova parcela criada com ID: 122 para o item Cartucho Impressora (02/05) (5/5)
+[2025-06-07 13:59:33] Processando lista Cartão Nubank (ID: 22) com 1 itens parcelados
+[2025-06-07 13:59:33] Usando lista existente com ID: 30
+[2025-06-07 13:59:33] Processando lista Cartão Itaú (ID: 29) com 2 itens parcelados
+[2025-06-07 13:59:33] Próximo período (2025-08-01) está fora do intervalo de processamento. Ignorando.
+[2025-06-07 13:59:33] Processando usuário ID: 2
+[2025-06-07 13:59:33] Encontrados 3 itens parcelados para o usuário 2
+[2025-06-07 13:59:33] Processando lista TESTE DE LISTA (ID: 24) com 1 itens parcelados
+[2025-06-07 13:59:33] Usando lista existente com ID: 26
+[2025-06-07 13:59:33] Processando item ITEM PARCELADINHO - Parcela 2/2
+[2025-06-07 13:59:33] Verificando se o item ITEM PARCELADINHO (parcela 2) já existe na lista 26
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Item ITEM PARCELADINHO (parcela 2) já existe na próxima lista. Ignorando.
+[2025-06-07 13:59:33] Processando lista TESTE DE LISTA (ID: 27) com 2 itens parcelados
+[2025-06-07 13:59:33] Usando lista existente com ID: 31
+[2025-06-07 13:59:33] Processando item ITEM PARCELADINHO - Parcela 2/3
+[2025-06-07 13:59:33] Verificando se o item ITEM PARCELADINHO (parcela 2) já existe na lista 31
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Nova parcela criada com ID: 123 para o item ITEM PARCELADINHO (2/3)
+[2025-06-07 13:59:33] Processando item ITEM PARCELADINHO - Parcela 2/6
+[2025-06-07 13:59:33] Verificando se o item ITEM PARCELADINHO (parcela 2) já existe na lista 31
+[2025-06-07 13:59:33] SQL: 
+                                SELECT COUNT(*) FROM gastosmensal_items
+                                WHERE _id_list = :list_id
+                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                            
+[2025-06-07 13:59:33] Nova parcela criada com ID: 124 para o item ITEM PARCELADINHO (2/6)
+[2025-06-07 13:59:33] Processamento concluído com sucesso

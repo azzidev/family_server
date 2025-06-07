@@ -193,11 +193,9 @@
 
                                 // Calcular o total da lista
                                 try {
-                                    $stmt = $conn->prepare("SELECT price FROM gastosmensal_items WHERE _id_list = :list_id AND _id_user = :user_id AND date_buy BETWEEN :startDate AND :endDate");
+                                    $stmt = $conn->prepare("SELECT price FROM gastosmensal_items WHERE _id_list = :list_id AND _id_user = :user_id ORDER BY date_buy DESC");
                                     $stmt->bindParam(':list_id', $list['_id']);
                                     $stmt->bindParam(':user_id', $_SESSION['user_id']);
-                                    $stmt->bindParam(':startDate', $period['start']);
-                                    $stmt->bindParam(':endDate', $period['end']);
                                     $stmt->execute();
                                     $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -214,6 +212,8 @@
                                         <p class="card-text text-end mb-0">
                                             <strong>Total da Lista: R$ <?= number_format($listTotal, 2, ',', '.') ?></strong>
                                         </p>
+                                    </div>
+                                    <div class="card-body">
                                         <h5 class="card-title"><?= htmlspecialchars($list['name']) ?></h5>
                                         <p class="card-text">
                                             Período: <?= date("d/m/Y", strtotime($period['start'])) ?> até <?= date("d/m/Y", strtotime($period['end'])) ?>
@@ -317,9 +317,9 @@
                                             ?>
 
                                             <?php if (empty($items)): ?>
-                                                <p class="text-warning">Nenhum item encontrado para este período.</p>
+                                                <p class="text-warning p-3 pb-0">Nenhum item encontrado para este período.</p>
                                             <?php else: ?>
-                                                <table class="table  table-striped mt-3">
+                                                <table class="table table-striped mb-0 mt-3">
                                                     <thead>
                                                         <tr>
                                                             <th class="text-center" style="max-width: 90px;">Data</th>
@@ -366,9 +366,9 @@
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>
-                                                            <td colspan="3" class="text-end"><strong>Total:</strong></td>
-                                                            <td><strong>R$ <?= number_format($total, 2, ',', '.') ?></strong></td>
-                                                            <td></td>
+                                                            <td colspan="3" class="border-0 text-end"><strong>Total:</strong></td>
+                                                            <td class="border-0"><strong>R$ <?= number_format($total, 2, ',', '.') ?></strong></td>
+                                                            <td class="border-0"></td>
                                                         </tr>
                                                     </tfoot>
                                                 </table>
@@ -509,6 +509,10 @@
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
+                            <label for="itemDate" class="form-label">Data</label>
+                            <input type="date" class="form-control" id="itemDate" name="date_buy" value="<?= date('Y-m-d') ?>" required>
+                        </div>
+                        <div class="mb-3">
                             <label for="itemList" class="form-label">Lista</label>
                             <select class="form-select" id="itemList" name="_id_list" required>
                                 <option value="" disabled selected>Selecione uma lista</option>
@@ -520,10 +524,6 @@
                         <div class="mb-3">
                             <label for="itemName" class="form-label">Nome</label>
                             <input type="text" class="form-control" id="itemName" name="name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="itemDate" class="form-label">Data</label>
-                            <input type="date" class="form-control" id="itemDate" name="date_buy" value="<?= date('Y-m-d') ?>" required>
                         </div>
                         <div class="mb-3">
                             <label for="itemPrice" class="form-label">Valor</label>
@@ -766,23 +766,18 @@
                         console.log('IDs a serem removidos:', response.deleted_ids);
                         
                         response.deleted_ids.forEach(function(id) {
-                            // Remover da tabela - usando seletor mais específico
-                            const $rows = $('tr').filter(function() {
-                                return $(this).data('item-id') == id;
-                            });
-                            
-                            console.log(`Encontradas ${$rows.length} linhas para o item ID ${id}`);
-                            $rows.remove();
+                            // Remover da tabela
+                            $('button.delete-item[data-item-id="' + id + '"]').closest('tr').remove();
                             
                             // Remover do extrato
-                            const $statementItems = $('.statement-item').filter(function() {
-                                return $(this).data('item-id') == id;
-                            });
-                            
-                            console.log(`Encontrados ${$statementItems.length} itens no extrato para o ID ${id}`);
-                            $statementItems.remove();
+                            $('.list-group-item:has(.fw-bold)').filter(function() {
+                                return $(this).find('.badge').length > 0;
+                            }).closest('ul').remove();
                         });
                     }
+                    
+                    // Atualizar os totais
+                    updateTotals();
                     
                     // Mostrar mensagem de sucesso em um modal
                     showNotificationModal('Sucesso', response.message, 'success');

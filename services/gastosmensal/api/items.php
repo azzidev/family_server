@@ -136,9 +136,9 @@ try {
             $listsHtml .= '<div class="card-body p-0">';
         
             if (empty($list['items'])) {
-                $listsHtml .= '<p class="text-warning">Nenhum item encontrado para este período.</p>';
+                $listsHtml .= '<p class="text-warning p-3 pb-0">Nenhum item encontrado para este período.</p>';
             } else {
-                $listsHtml .= '<table class="table  table-striped mt-3">';
+                $listsHtml .= '<table class="table table-striped mb-0 mt-3">';
                 $listsHtml .= '<thead>';
                 $listsHtml .= '<tr>';
                 $listsHtml .= '<th class="text-center" style="max-width: 90px;">Data</th>';
@@ -177,9 +177,9 @@ try {
                 $listsHtml .= '</tbody>';
                 $listsHtml .= '<tfoot>';
                 $listsHtml .= '<tr>';
-                $listsHtml .= '<td colspan="3" class="text-end"><strong>Total:</strong></td>';
-                $listsHtml .= '<td><strong>R$ ' . number_format($listTotal, 2, ',', '.') . '</strong></td>';
-                $listsHtml .= '<td></td>';
+                $listsHtml .= '<td colspan="3" class="border-0 text-end"><strong>Total:</strong></td>';
+                $listsHtml .= '<td class="border-0"><strong>R$ ' . number_format($listTotal, 2, ',', '.') . '</strong></td>';
+                $listsHtml .= '<td class="border-0"></td>';
                 $listsHtml .= '</tr>';
                 $listsHtml .= '</tfoot>';
                 $listsHtml .= '</table>';
@@ -203,7 +203,7 @@ try {
             $badgeClass = $listType === 'receivable' ? 'bg-success' : 'bg-danger';
     
             $statementHtml .= '<ul class="list-group">';
-            $statementHtml .= '<li class="list-group-item d-flex justify-content-between align-items-start">';
+            $statementHtml .= '<li class="list-group-item d-flex justify-content-between align-items-start statement-item" data-item-id="' . $item['_id'] . '">';
             $statementHtml .= '<div>';
             $statementHtml .= '<div class="fw-bold">' . htmlspecialchars($item['name']) . '</div>';
             $statementHtml .= '<small class="text-muted">' . htmlspecialchars($item['list_name']) . '</small>';
@@ -258,11 +258,27 @@ try {
         // Converter installments e current_installment para inteiros
         $installments = $data['is_installment'] ? intval($data['installments']) : null;
         $current_installment = intval($data['current_installment']);
+        
+        // Gerar um ID único para o grupo de parcelas (apenas se for parcelado)
+        $installmentGroupId = null;
+        if ($installments > 1) {
+            // Gerar um ID base64 único para o grupo de parcelas
+            $installmentGroupId = base64_encode(uniqid('parcela_', true));
+        }
 
         // Insere o item no banco de dados
         $stmt = $conn->prepare("
             INSERT INTO gastosmensal_items (_id_user, _id_list, name, price, date_buy, date)
-            VALUES (:user_id, :list_id, :name, JSON_OBJECT('price', :price, 'installments', :installments, 'current_installment', :current_installment), :date_buy, JSON_OBJECT('created', NOW(), 'updated', NOW()))
+            VALUES (:user_id, :list_id, :name, 
+                JSON_OBJECT(
+                    'price', :price, 
+                    'installments', :installments, 
+                    'current_installment', :current_installment,
+                    'installment_group_id', :installment_group_id
+                ), 
+                :date_buy, 
+                JSON_OBJECT('created', NOW(), 'updated', NOW())
+            )
         ");
         $stmt->bindParam(':user_id', $_SESSION['user_id']);
         $stmt->bindParam(':list_id', $data['list']);
@@ -270,6 +286,7 @@ try {
         $stmt->bindParam(':price', $data['price']);
         $stmt->bindParam(':installments', $installments, PDO::PARAM_INT);
         $stmt->bindParam(':current_installment', $current_installment, PDO::PARAM_INT);
+        $stmt->bindParam(':installment_group_id', $installmentGroupId);
         $stmt->bindParam(':date_buy', $data['date_buy']);
 
         $result = $stmt->execute();
@@ -318,12 +335,34 @@ try {
         // Converter installments e current_installment para inteiros
         $installments = $data['is_installment'] ? intval($data['installments']) : null;
         $current_installment = intval($data['current_installment']);
+        
+        // Verificar se o item já tem um group_id
+        $stmt = $conn->prepare("
+            SELECT price FROM gastosmensal_items WHERE _id = :id AND _id_user = :user_id
+        ");
+        $stmt->bindParam(':id', $data['_id']);
+        $stmt->bindParam(':user_id', $_SESSION['user_id']);
+        $stmt->execute();
+        $existingItem = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        $priceData = json_decode($existingItem['price'], true);
+        $installmentGroupId = isset($priceData['installment_group_id']) ? $priceData['installment_group_id'] : null;
+        
+        // Se não tem group_id e agora é parcelado, criar um
+        if (!$installmentGroupId && $installments > 1) {
+            $installmentGroupId = base64_encode(uniqid('parcela_', true));
+        }
 
         // Atualiza o item no banco de dados
         $stmt = $conn->prepare("
             UPDATE gastosmensal_items
             SET name = :name,
-                price = JSON_OBJECT('price', :price, 'installments', :installments, 'current_installment', :current_installment),
+                price = JSON_OBJECT(
+                    'price', :price, 
+                    'installments', :installments, 
+                    'current_installment', :current_installment,
+                    'installment_group_id', :installment_group_id
+                ),
                 date_buy = :date_buy,
                 date = JSON_SET(date, '$.updated', NOW())
             WHERE _id = :id AND _id_user = :user_id
@@ -334,6 +373,7 @@ try {
         $stmt->bindParam(':price', $data['price']);
         $stmt->bindParam(':installments', $installments, PDO::PARAM_INT);
         $stmt->bindParam(':current_installment', $current_installment, PDO::PARAM_INT);
+        $stmt->bindParam(':installment_group_id', $installmentGroupId);
         $stmt->bindParam(':date_buy', $data['date_buy']);
         $stmt->execute();
 
@@ -350,9 +390,7 @@ try {
         
         // Verificar se o item existe e pertence ao usuário
         $stmt = $conn->prepare("
-            SELECT i.*, JSON_EXTRACT(i.price, '$.installments') as installments, 
-                   JSON_EXTRACT(i.price, '$.current_installment') as current_installment,
-                   i.name as item_name
+            SELECT i.*, i.price as price_json, i.name as item_name
             FROM gastosmensal_items i
             WHERE i._id = :id AND i._id_user = :user_id
         ");
@@ -365,20 +403,40 @@ try {
             throw new Exception('Item não encontrado ou não pertence ao usuário.');
         }
         
+        // Decodificar o JSON do preço para obter informações sobre parcelas
+        $priceData = json_decode($item['price_json'], true);
+        $installments = isset($priceData['installments']) ? intval($priceData['installments']) : 0;
+        $installmentGroupId = isset($priceData['installment_group_id']) ? $priceData['installment_group_id'] : null;
+        
         $deletedIds = [$itemId]; // Inicializa com o ID atual
         
         // Verificar se é um item parcelado e se deve excluir todas as parcelas
-        if ($item['installments'] > 1 && $deleteAllInstallments) {
-            // Buscar todas as parcelas com o mesmo nome
-            $stmt = $conn->prepare("
-                SELECT _id FROM gastosmensal_items 
-                WHERE _id_user = :user_id 
-                AND name = :name 
-                AND _id != :current_id
-            ");
-            $stmt->bindParam(':user_id', $_SESSION['user_id']);
-            $stmt->bindParam(':name', $item['item_name']);
-            $stmt->bindParam(':current_id', $itemId);
+        if ($installments > 1 && $deleteAllInstallments) {
+            if ($installmentGroupId) {
+                // Buscar todas as parcelas com o mesmo group_id
+                $stmt = $conn->prepare("
+                    SELECT _id FROM gastosmensal_items 
+                    WHERE _id_user = :user_id 
+                    AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                    AND _id != :current_id
+                ");
+                $stmt->bindParam(':user_id', $_SESSION['user_id']);
+                $stmt->bindParam(':group_id', $installmentGroupId);
+                $stmt->bindParam(':current_id', $itemId);
+            } else {
+                // Fallback para busca por nome se não tiver group_id
+                $stmt = $conn->prepare("
+                    SELECT _id FROM gastosmensal_items 
+                    WHERE _id_user = :user_id 
+                    AND name = :name 
+                    AND _id != :current_id
+                    AND CAST(JSON_EXTRACT(price, '$.installments') AS UNSIGNED) > 1
+                ");
+                $stmt->bindParam(':user_id', $_SESSION['user_id']);
+                $stmt->bindParam(':name', $item['item_name']);
+                $stmt->bindParam(':current_id', $itemId);
+            }
+            
             $stmt->execute();
             $relatedItems = $stmt->fetchAll(PDO::FETCH_COLUMN);
             
