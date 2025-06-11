@@ -25,3 +25,16 @@ function getConfig() {
 
     return $config;
 }
+
+// Identificar o diretório atual
+$currentPath = $_SERVER['REQUEST_URI'];
+$pageTitle = 'Family Server';
+
+// Definir títulos específicos com base no diretório
+if (strpos($currentPath, "/auth/") !== false) {
+    $pageTitle = 'Autenticação';
+} elseif (strpos($currentPath, "/dashboard/") !== false) {
+    $pageTitle = 'Dashboard';
+} elseif (strpos($currentPath, "/gastosmensal/") !== false) {
+    $pageTitle = 'Gastos Mensais';
+}
