@@ -56,14 +56,11 @@
 
     foreach ($lists as $list) {
         $listType = json_decode($list['type'], true)['type']; // Identifica o tipo da lista
-        $period = json_decode($list['period'], true);
 
         try {
-            $stmt = $conn->prepare("SELECT price FROM gastosmensal_items WHERE _id_list = :list_id AND _id_user = :user_id AND date_buy BETWEEN :startDate AND :endDate");
+            $stmt = $conn->prepare("SELECT price FROM gastosmensal_items WHERE _id_list = :list_id AND _id_user = :user_id");
             $stmt->bindParam(':list_id', $list['_id']);
             $stmt->bindParam(':user_id', $_SESSION['user_id']);
-            $stmt->bindParam(':startDate', $period['start']);
-            $stmt->bindParam(':endDate', $period['end']);
             $stmt->execute();
             $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -133,11 +130,9 @@
 
                                 // Calcular o total da lista
                                 try {
-                                    $stmt = $conn->prepare("SELECT price FROM gastosmensal_items WHERE _id_list = :list_id AND _id_user = :user_id AND date_buy BETWEEN :startDate AND :endDate");
+                                    $stmt = $conn->prepare("SELECT price FROM gastosmensal_items WHERE _id_list = :list_id AND _id_user = :user_id");
                                     $stmt->bindParam(':list_id', $list['_id']);
                                     $stmt->bindParam(':user_id', $_SESSION['user_id']);
-                                    $stmt->bindParam(':startDate', $period['start']);
-                                    $stmt->bindParam(':endDate', $period['end']);
                                     $stmt->execute();
                                     $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -305,10 +300,7 @@
                                                 // Fetch items for the current list
                                                 $items = [];
                                                 try {
-                                                    $period = json_decode($list['period'], true);
-                                                    $stmt = $conn->prepare("SELECT _id, name, price, date_buy FROM gastosmensal_items WHERE _id_list={$list['_id']} AND  _id_user={$_SESSION['user_id']} AND date_buy BETWEEN :startDate AND :endDate");
-                                                    $stmt->bindParam(':startDate', $period['start']);
-                                                    $stmt->bindParam(':endDate', $period['end']);
+                                                    $stmt = $conn->prepare("SELECT _id, name, price, date_buy FROM gastosmensal_items WHERE _id_list={$list['_id']} AND _id_user={$_SESSION['user_id']}");
                                                     $stmt->execute();
                                                     $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                                 } catch (PDOException $e) {
@@ -395,13 +387,13 @@
                         $firstDayFormatted = $firstDayOfMonth . ' 00:00:00';
                         $lastDayFormatted = $lastDayOfMonth . ' 23:59:59';
                         
-                        // Buscar todos os itens do mês atual
+                        // Buscar todos os itens das listas filtradas
                         $stmt = $conn->prepare("
                             SELECT i.name AS item_name, i.price, i.date_buy, l.name AS list_name, l.type 
                             FROM gastosmensal_items i 
                             INNER JOIN gastosmensal_lists l ON i._id_list = l._id 
                             WHERE i._id_user = :user_id 
-                            AND i.date_buy BETWEEN :start_date AND :end_date 
+                            AND l._id IN (SELECT _id FROM gastosmensal_lists WHERE _id_user = :user_id AND (JSON_EXTRACT(period, '$.start') <= :end_date AND JSON_EXTRACT(period, '$.end') >= :start_date))
                             ORDER BY i.date_buy DESC
                         ");
                         $stmt->bindParam(':user_id', $_SESSION['user_id']);
@@ -697,14 +689,24 @@
                 // Disparar evento change nos inputs
                 $('#start-period-filter, #end-period-filter').trigger('change');
             } else if (selectedOption === 'Período atual') {
-                // Definir data atual e data atual + 1 mês
-                const today = new Date();
-                const nextMonth = new Date();
+                // Definir data atual e data atual + 1 mês (usando fuso horário local)
+                const now = new Date();
+                
+                // Data atual
+                const today = new Date(now);
+                
+                // Data atual + 1 mês
+                const nextMonth = new Date(now);
                 nextMonth.setMonth(nextMonth.getMonth() + 1);
                 
                 // Formatar as datas para o formato YYYY-MM-DD
-                const todayFormatted = today.toISOString().split('T')[0];
-                const nextMonthFormatted = nextMonth.toISOString().split('T')[0];
+                const todayFormatted = today.getFullYear() + '-' + 
+                    String(today.getMonth() + 1).padStart(2, '0') + '-' + 
+                    String(today.getDate()).padStart(2, '0');
+                
+                const nextMonthFormatted = nextMonth.getFullYear() + '-' + 
+                    String(nextMonth.getMonth() + 1).padStart(2, '0') + '-' + 
+                    String(nextMonth.getDate()).padStart(2, '0');
                 
                 // Atualizar os inputs de data
                 $('#start-period-filter').val(todayFormatted);

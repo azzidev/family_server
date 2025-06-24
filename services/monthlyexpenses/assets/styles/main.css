@@ -1,0 +1,149 @@
+* {
+    font-family: Poppins, sans-serif;
+}
+
+.daterangepicker {
+  background-color: #1e1e1e;
+  color: #fff;
+  border-color: #444;
+  user-select: none;
+}
+
+.daterangepicker .calendar-table {
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+.daterangepicker .calendar-table td.available:hover,
+.daterangepicker .calendar-table td.in-range {
+  background-color: #444;
+  color: #fff;
+}
+
+.daterangepicker .drp-calendar {
+  background-color: #2a2a2a;
+}
+
+.daterangepicker .drp-buttons {
+  background-color: #1e1e1e;
+  border-top: 1px solid #333;
+}
+
+.daterangepicker .drp-buttons .btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+}
+
+.daterangepicker .drp-buttons .btn:hover {
+  background-color: #555;
+}
+
+.daterangepicker .calendar-table .active,
+.daterangepicker .calendar-table .active:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.daterangepicker td.off{
+    background-color: #000;
+}
+
+.daterangepicker .calendar-table {
+    border: 0;
+}
+
+.daterangepicker .calendar-table .next span, .daterangepicker .calendar-table .prev span{
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+}
+
+.daterangepicker .calendar-table .next:hover, .daterangepicker .calendar-table .prev:hover{
+    background: #4d4d4d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.floating-button button#actionButton {
+  width: 42px;
+  height: 42px;
+}
+
+.floating-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+}
+
+.floating-menu.show {
+    display: flex;
+}
+
+.skeleton-card, .skeleton-line {
+  background: linear-gradient(90deg, var(--bs-body-bg) 25%, var(--bs-secondary-bg) 50%, var(--bs-tertiary-bg) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 2s infinite linear;
+  border-radius: 4px;
+  margin: 12px 0px;
+}
+
+.skeleton-card {
+  height: 120px;
+  width: 100%;
+}
+
+.skeleton-line {
+  height: 24px;
+  width: 100%;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 25%; }
+  100% { background-position: -200% -50%; }
+}
+#masonry-grid{
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  position: relative;
+}
+.masonry-item {
+  cursor: pointer;
+  transition: 0.3s ease;
+  border: 2px solid transparent;
+}
+.masonry-item.selected {
+  border-color: var(--bs-danger-border-subtle);
+  border-radius: 10px;
+  background-color: var(--bs-danger-bg-subtle);
+  box-shadow: 0 0 0 3px var(--bs-danger-bg-subtle);
+  position: relative;
+}
+.masonry-item.selected::after {
+  content: "✓";
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background-color: var(--bs-danger-bg-subtle);
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  text-align: center;
+  line-height: 22px;
+  font-size: 14px;
+}

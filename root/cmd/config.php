@@ -37,4 +37,6 @@ if (strpos($currentPath, "/auth/") !== false) {
     $pageTitle = 'Dashboard';
 } elseif (strpos($currentPath, "/gastosmensal/") !== false) {
     $pageTitle = 'Gastos Mensais';
+} elseif (strpos($currentPath, "/monthlyexpenses/") !== false) {
+    $pageTitle = 'Gastos Mensais';
 }

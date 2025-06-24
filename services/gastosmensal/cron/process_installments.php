@@ -116,7 +116,8 @@ try {
             $nextPeriodStart = date('Y-m-d', strtotime('+1 day', strtotime($listPeriod['end'])));
             
             // Só criar lista para o próximo período se estiver dentro do intervalo de processamento
-            if (strtotime($nextPeriodStart) <= strtotime($oneMonthAhead)) {
+            // E se o próximo período for no futuro (não retroativo)
+            if (strtotime($nextPeriodStart) <= strtotime($oneMonthAhead) && strtotime($nextPeriodStart) > strtotime($today)) {
                 // Verificar se já existe uma lista para o próximo período
                 $nextPeriodEnd = date('Y-m-t 23:59:59', strtotime($nextPeriodStart));
                 
@@ -178,12 +179,27 @@ try {
                     writeLog("Usando lista existente com ID: $nextListId");
                 }
                 
+                // Rastrear itens já processados para evitar duplicações
+                $processedItems = [];
+                
                 // Processar cada item parcelado
                 foreach ($items as $item) {
                     $priceData = json_decode($item['price'], true);
                     $installments = intval($priceData['installments']);
                     $currentInstallment = intval($priceData['current_installment']);
                     $nextInstallment = $currentInstallment + 1;
+                    
+                    // Criar uma chave única para este item
+                    $itemKey = $item['name'] . '_' . $priceData['price'] . '_' . $installments . '_' . $nextInstallment;
+                    
+                    // Pular se já processamos este item neste ciclo
+                    if (isset($processedItems[$itemKey])) {
+                        writeLog("Item {$item['name']} - Parcela $nextInstallment/$installments já foi processado neste ciclo. Pulando.");
+                        continue;
+                    }
+                    
+                    // Marcar como processado
+                    $processedItems[$itemKey] = true;
                     
                     // Verificar se ainda há parcelas a serem processadas
                     if ($nextInstallment <= $installments) {
@@ -193,34 +209,76 @@ try {
                         $priceData = json_decode($item['price'], true);
                         $installmentGroupId = isset($priceData['installment_group_id']) ? $priceData['installment_group_id'] : null;
                         
-                        // Verificar se o item já existe na próxima lista
+                        // Verificar se o item já existe em QUALQUER lista - busca mais rigorosa
                         if ($installmentGroupId) {
-                            // Se tiver group_id, usar para verificar
+                            // Se tiver group_id, usar para verificar em todas as listas
                             $stmt = $conn->prepare("
                                 SELECT COUNT(*) FROM gastosmensal_items
-                                WHERE _id_list = :list_id
-                                AND JSON_EXTRACT(price, '$.installment_group_id') = :group_id
+                                WHERE JSON_EXTRACT(price, '$.installment_group_id') = :group_id
                                 AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
+                                AND name = :name
+                                AND _id_user = :user_id
                             ");
-                            $stmt->bindParam(':list_id', $nextListId);
                             $stmt->bindParam(':group_id', $installmentGroupId);
                             $stmt->bindParam(':next_installment', $nextInstallment);
+                            $stmt->bindParam(':name', $item['name']);
+                            $stmt->bindParam(':user_id', $userId);
                         } else {
-                            // Se não tiver group_id, verificar por nome E preço
+                            // Se não tiver group_id, verificar por nome E preço em todas as listas
                             $stmt = $conn->prepare("
                                 SELECT COUNT(*) FROM gastosmensal_items
-                                WHERE _id_list = :list_id
-                                AND name = :name
+                                WHERE name = :name
                                 AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = :next_installment
                                 AND JSON_EXTRACT(price, '$.price') = :price
+                                AND _id_user = :user_id
                             ");
-                            $stmt->bindParam(':list_id', $nextListId);
                             $stmt->bindParam(':name', $item['name']);
                             $stmt->bindParam(':next_installment', $nextInstallment);
                             $stmt->bindParam(':price', $priceData['price']);
+                            $stmt->bindParam(':user_id', $userId);
                             
-                            // Criar um group_id para este item
-                            $installmentGroupId = base64_encode(uniqid('parcela_', true));
+                            // Buscar a primeira parcela para obter o group_id
+                            $stmtGroup = $conn->prepare("
+                                SELECT JSON_EXTRACT(price, '$.installment_group_id') as group_id 
+                                FROM gastosmensal_items 
+                                WHERE name = :name 
+                                AND _id_user = :user_id 
+                                AND CAST(JSON_EXTRACT(price, '$.current_installment') AS UNSIGNED) = 1
+                                AND JSON_EXTRACT(price, '$.installments') = :installments
+                                LIMIT 1
+                            ");
+                            $stmtGroup->bindParam(':name', $item['name']);
+                            $stmtGroup->bindParam(':user_id', $userId);
+                            $stmtGroup->bindParam(':installments', $installments);
+                            $stmtGroup->execute();
+                            $groupResult = $stmtGroup->fetch(PDO::FETCH_ASSOC);
+                            
+                            if ($groupResult && $groupResult['group_id']) {
+                                $installmentGroupId = trim($groupResult['group_id'], '\"');
+                                writeLog("Encontrado group_id existente: $installmentGroupId");
+                            } else {
+                                // Se não encontrar, criar um novo (apenas para itens antigos)
+                                $installmentGroupId = base64_encode(uniqid('parcela_' . $item['_id'] . '_', true));
+                                writeLog("Criando novo group_id para item antigo: $installmentGroupId");
+                                
+                                // Atualizar todas as parcelas existentes da mesma compra usando date_buy
+                                $stmtUpdateExisting = $conn->prepare("
+                                    UPDATE gastosmensal_items 
+                                    SET price = JSON_SET(price, '$.installment_group_id', :group_id)
+                                    WHERE name = :name 
+                                    AND _id_user = :user_id 
+                                    AND date_buy = :date_buy
+                                    AND JSON_EXTRACT(price, '$.installments') = :installments
+                                ");
+                                $stmtUpdateExisting->bindParam(':group_id', $installmentGroupId);
+                                $stmtUpdateExisting->bindParam(':name', $item['name']);
+                                $stmtUpdateExisting->bindParam(':user_id', $userId);
+                                $stmtUpdateExisting->bindParam(':date_buy', $item['date_buy']);
+                                $stmtUpdateExisting->bindParam(':installments', $installments);
+                                $stmtUpdateExisting->execute();
+                                $updatedCount = $stmtUpdateExisting->rowCount();
+                                writeLog("Atualizadas $updatedCount parcelas existentes com o novo group_id: $installmentGroupId");
+                            }
                         }
                         
                         writeLog("Verificando se o item {$item['name']} (parcela $nextInstallment) já existe na lista $nextListId");
@@ -230,10 +288,14 @@ try {
                         
                         if (!$itemExists) {
                             // Criar o novo item para a próxima parcela
+                            // Garantir que a data de compra seja sempre no futuro
                             $newDateBuy = date('Y-m-d', strtotime($nextPeriodStart));
+                            if (strtotime($newDateBuy) <= strtotime($today)) {
+                                $newDateBuy = date('Y-m-d', strtotime('+1 day', strtotime($today)));
+                            }
                             
-                            // Obter o group_id do item original ou criar um novo se não existir
-                            $installmentGroupId = isset($priceData['installment_group_id']) ? $priceData['installment_group_id'] : base64_encode(uniqid('parcela_', true));
+                            // Usar o group_id do item original para todas as parcelas
+                            // Se não tiver group_id, não devemos criar um novo aqui
                             
                             // Criar o novo objeto de preço com a parcela atualizada
                             $priceArray = [
